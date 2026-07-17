@@ -1,0 +1,394 @@
+/* Featured Courses */
+
+.featured-section {
+  padding: 80px 10%;
+  background: #f8fafc;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 40px;
+  margin-bottom: 50px;
+  color: #1e293b;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.course-card {
+  background: white;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+}
+
+.course-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.course-card h3 {
+  padding: 15px;
+  font-size: 22px;
+}
+
+.course-card p {
+  padding: 0 15px;
+  color: #2563eb;
+  font-weight: bold;
+}
+
+.course-card button {
+  margin: 15px;
+  padding: 12px 20px;
+  border: none;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Why Choose Us */
+
+/* .why-us {
+  padding: 80px 10%;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.why-card {
+  background: white;
+  text-align: center;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+} */
+
+/* ==========================
+   WHY US SECTION
+========================== */
+
+.why-us {
+  padding: 100px 8%;
+  background: linear-gradient(180deg, #f8fafc, #ffffff);
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.section-title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -15px;
+  transform: translateX(-50%);
+
+  width: 90px;
+  height: 4px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+}
+
+/* Grid */
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+/* Card */
+
+.why-card {
+  background: #ffffff;
+
+  padding: 40px 30px;
+
+  text-align: center;
+
+  border-radius: 28px;
+
+  position: relative;
+  overflow: hidden;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  transition: all 0.4s ease;
+}
+
+/* Top Gradient Bar */
+
+.why-card::before {
+  content: "";
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+
+  transform: scaleX(0);
+  transition: 0.4s;
+}
+
+.why-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Hover */
+
+.why-card:hover {
+  transform: translateY(-12px);
+
+  box-shadow: 0 25px 50px rgba(37, 99, 235, 0.15);
+}
+
+/* Icon */
+
+.why-icon {
+  width: 80px;
+  height: 80px;
+
+  margin: 0 auto 25px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.12),
+    rgba(79, 70, 229, 0.12)
+  );
+
+  color: #2563eb;
+
+  transition: all 0.4s ease;
+}
+
+.why-card:hover .why-icon {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  color: white;
+
+  transform: rotate(10deg) scale(1.1);
+}
+
+/* Heading */
+
+.why-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #0f172a;
+
+  margin-bottom: 15px;
+
+  transition: 0.3s;
+}
+
+.why-card:hover h3 {
+  color: #2563eb;
+}
+
+/* Description */
+
+.why-card p {
+  color: #64748b;
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .why-card {
+    padding: 30px 25px;
+  }
+
+  .why-icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+
+/* Glow Animation */
+
+.why-icon {
+  position: relative;
+  overflow: hidden;
+}
+
+.why-icon::before {
+  content: "";
+
+  position: absolute;
+
+  width: 120%;
+  height: 120%;
+
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(255,255,255,0.4),
+    transparent
+  );
+
+  transform: translateX(-150%) rotate(25deg);
+
+  transition: 0.8s;
+}
+
+.why-card:hover .why-icon::before {
+  transform: translateX(150%) rotate(25deg);
+}
+
+/* Floating Card Effect */
+
+.why-card {
+  backdrop-filter: blur(10px);
+}
+
+.why-card:hover {
+  transform: translateY(-14px);
+}
+
+/* Title Animation */
+
+.why-card h3 {
+  transition: all 0.3s ease;
+}
+
+.why-card:hover h3 {
+  letter-spacing: 0.5px;
+}
+
+/* Description Animation */
+
+.why-card p {
+  transition: all 0.3s ease;
+}
+
+.why-card:hover p {
+  color: #475569;
+}
+
+/* Icon Floating Animation */
+
+@keyframes floatIcon {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.why-icon svg {
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+/* Testimonials */
+
+.testimonial-section {
+  background: #f8fafc;
+  padding: 80px 10%;
+}
+
+.testimonial-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.testimonial-card {
+  width: 350px;
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* CTA */
+
+.cta-section {
+  text-align: center;
+  padding: 100px 20px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: white;
+}
+
+.cta-section h2 {
+  font-size: 45px;
+  margin-bottom: 20px;
+}
+
+.cta-section p {
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+.cta-section button {
+  padding: 15px 35px;
+  border: none;
+  background: white;
+  color: #2563eb;
+  font-weight: bold;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.courses-section {
+  padding: 80px 10%;
+}
+
+.courses-section h1 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 50px;
+}
+
+.course-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+
+  gap: 30px;
+}

@@ -1,0 +1,227 @@
+.upload-container {
+  min-height: 90vh;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  background: #f8fafc;
+
+  padding: 30px;
+}
+
+.upload-card {
+  width: 520px;
+
+  background: white;
+
+  padding: 35px;
+
+  border-radius: 24px;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.08);
+
+  animation: fade 0.4s ease;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.upload-header {
+  display: flex;
+
+  gap: 18px;
+
+  align-items: center;
+
+  margin-bottom: 30px;
+}
+
+.icon-box {
+  width: 60px;
+
+  height: 60px;
+
+  border-radius: 18px;
+
+  background: #2563eb;
+
+  color: white;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.upload-header h1 {
+  margin: 0;
+
+  font-size: 26px;
+}
+
+.upload-header p {
+  color: #64748b;
+
+  margin-top: 5px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  font-weight: 600;
+
+  display: block;
+
+  margin-bottom: 8px;
+}
+
+.form-group input {
+  width: 100%;
+
+  padding: 14px;
+
+  border-radius: 12px;
+
+  border: 1px solid #e2e8f0;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: #2563eb;
+}
+
+.video-upload {
+  border: 2px dashed #cbd5e1;
+
+  padding: 35px;
+
+  border-radius: 18px;
+
+  text-align: center;
+
+  color: #64748b;
+}
+
+.video-upload input {
+  display: none;
+}
+
+.video-upload label {
+  display: inline-block;
+
+  margin-top: 15px;
+
+  background: #2563eb;
+
+  color: white;
+
+  padding: 12px 25px;
+
+  border-radius: 30px;
+
+  cursor: pointer;
+}
+
+.video-upload label:hover {
+  background: #1d4ed8;
+}
+
+.preview {
+  margin-top: 25px;
+}
+
+.preview video {
+  width: 100%;
+
+  border-radius: 15px;
+}
+
+.upload-btn {
+  margin-top: 25px;
+
+  width: 100%;
+
+  height: 50px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-size: 17px;
+
+  font-weight: 600;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.upload-btn:hover {
+  background: #1d4ed8;
+}
+
+.upload-btn:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+}
+
+.success {
+  margin-top: 20px;
+
+  background: #dcfce7;
+
+  color: #166534;
+
+  padding: 15px;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  gap: 10px;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.spin {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    transform: rotate(360deg);
+  }
+}

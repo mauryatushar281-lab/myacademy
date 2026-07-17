@@ -1,0 +1,901 @@
+/* ==========================================
+   MY-ACADEMY PROFESSIONAL NAVBAR
+========================================== */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, 0.92);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.navbar-container {
+  max-width: 1350px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 16px 30px;
+}
+
+/* ==========================================
+   LOGO
+========================================== */
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+}
+
+.logo svg {
+  color: #2563eb;
+}
+
+.logo span {
+  font-size: 28px;
+  font-weight: 800;
+
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ==========================================
+   NAV LINKS
+========================================== */
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #334155;
+
+  font-weight: 600;
+
+  position: relative;
+
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #2563eb;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -6px;
+
+  width: 0;
+  height: 2px;
+
+  background: #2563eb;
+
+  transition: 0.3s;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: #2563eb;
+}
+
+/* ==========================================
+   DROPDOWN
+========================================== */
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: inherit;
+  font-weight: 500;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  min-width: 180px;
+
+  background: white;
+  border-radius: 12px;
+
+  padding: 10px 0;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+
+  display: none;
+
+  z-index: 999;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+
+  padding: 12px 18px;
+
+  color: #333;
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: #f3f4f6;
+  color: #2563eb;
+}
+/* .dropdown {
+  position: relative;
+}
+
+.dropdown span {
+  cursor: pointer;
+  font-weight: 600;
+  color: #334155;
+} */
+
+.dropdown-menu {
+  position: absolute;
+
+  top: 140%;
+  left: 0;
+
+  min-width: 220px;
+
+  background: white;
+
+  padding: 12px;
+
+  border-radius: 14px;
+
+  display: none;
+  flex-direction: column;
+
+  gap: 10px;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+
+  z-index: 999;
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+
+  color: #334155;
+
+  padding: 10px;
+
+  border-radius: 8px;
+
+  transition: 0.3s;
+}
+
+.dropdown-menu a:hover {
+  background: #f1f5f9;
+  color: #2563eb;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: flex;
+}
+
+/* ==========================================
+   RIGHT SECTION
+========================================== */
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* ==========================================
+   SEARCH
+========================================== */
+
+.search-wrapper {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+
+  padding: 10px 15px;
+
+  border-radius: 14px;
+
+  transition: all 0.3s ease;
+}
+
+.search-wrapper:hover,
+.search-wrapper:focus-within {
+  border-color: #2563eb;
+
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+}
+
+.search-box {
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  width: 220px;
+
+  font-size: 14px;
+}
+
+.search-box::placeholder {
+  color: #94a3b8;
+}
+
+/* ==========================================
+   SEARCH SUGGESTIONS
+========================================== */
+
+.suggestions {
+  position: absolute;
+
+  top: calc(100% + 10px);
+  left: 0;
+
+  width: 100%;
+
+  background: white;
+
+  border-radius: 14px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+
+  z-index: 999;
+}
+
+.suggestions div {
+  padding: 12px 15px;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.suggestions div:hover {
+  background: #f1f5f9;
+}
+
+/* ==========================================
+   LOGIN BUTTON
+========================================== */
+
+.login-btn {
+  text-decoration: none;
+
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  color: white;
+
+  padding: 12px 24px;
+
+  border-radius: 12px;
+
+  font-weight: 600;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.35);
+}
+
+/* ==========================================
+   PROFILE IMAGE
+========================================== */
+
+.navbar-profile {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+  object-fit: cover;
+
+  border: 2px solid #2563eb;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.navbar-profile:hover {
+  transform: scale(1.08);
+
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+}
+
+/* ==========================================
+   NOTIFICATION
+========================================== */
+
+.notification-box {
+  position: relative;
+
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background: #f8fafc;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.notification-box:hover {
+  background: #e2e8f0;
+}
+
+.notification-count {
+  position: absolute;
+
+  top: -5px;
+  right: -5px;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: #ef4444;
+  color: white;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ==========================================
+   THEME BUTTON
+========================================== */
+
+.theme-btn {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #f1f5f9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.theme-btn:hover {
+  background: #e2e8f0;
+
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   MOBILE MENU BUTTON
+========================================== */
+
+.menu-btn {
+  display: none;
+
+  background: none;
+  border: none;
+
+  cursor: pointer;
+}
+
+/* ==========================================
+   DARK MODE
+========================================== */
+
+body.dark {
+  background: #0f172a;
+  color: white;
+}
+
+body.dark .navbar {
+  background: rgba(17, 24, 39, 0.95);
+}
+
+body.dark .nav-links a,
+body.dark .dropdown span {
+  color: white;
+}
+
+body.dark .dropdown-menu {
+  background: #1e293b;
+}
+
+body.dark .dropdown-menu a {
+  color: white;
+}
+
+body.dark .dropdown-menu a:hover {
+  background: #334155;
+}
+
+body.dark .search-wrapper {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+body.dark .search-box {
+  color: white;
+}
+
+body.dark .suggestions {
+  background: #1e293b;
+}
+
+body.dark .suggestions div:hover {
+  background: #334155;
+}
+
+body.dark .notification-box,
+body.dark .theme-btn {
+  background: #1e293b;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 992px) {
+  .search-box {
+    width: 160px;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .search-wrapper {
+    display: none;
+  }
+
+  .login-btn {
+    display: none;
+  }
+
+  .nav-links {
+    position: absolute;
+
+    top: 75px;
+    left: 0;
+
+    width: 100%;
+
+    background: white;
+
+    flex-direction: column;
+
+    gap: 25px;
+
+    padding: 25px;
+
+    display: none;
+
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.08);
+
+    animation: slideDown 0.3s ease;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  body.dark .nav-links {
+    background: #111827;
+  }
+
+  .navbar-container {
+    padding: 15px 20px;
+  }
+
+  .logo span {
+    font-size: 24px;
+  }
+}
+
+/* ==========================================
+   ANIMATION
+========================================== */
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  background: white;
+
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-container {
+  max-width: 1350px;
+  margin: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 15px 25px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+
+  font-size: 26px;
+  font-weight: 800;
+
+  color: #2563eb;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  text-decoration: none;
+
+  color: #334155;
+
+  font-weight: 600;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+
+  font-size: 16px;
+
+  cursor: pointer;
+
+  font-weight: 600;
+}
+
+.dropdown-menu {
+  position: absolute;
+
+  top: 35px;
+  left: 0;
+
+  background: white;
+
+  padding: 10px;
+
+  width: 180px;
+
+  display: none;
+
+  border-radius: 12px;
+
+  box-shadow: 0 10px 30px #0002;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+
+  padding: 10px;
+}
+
+.right-section {
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+}
+
+.search-wrapper {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  background: #f1f5f9;
+
+  padding: 10px 15px;
+
+  border-radius: 14px;
+
+  position: relative;
+}
+
+.search-box {
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  width: 180px;
+}
+
+.suggestions {
+  position: absolute;
+
+  top: 45px;
+
+  left: 0;
+
+  width: 100%;
+
+  background: white;
+
+  box-shadow: 0 10px 20px #0002;
+
+  border-radius: 10px;
+}
+
+.suggestions div {
+  padding: 10px;
+}
+
+.theme-btn,
+.notification-box {
+  width: 42px;
+  height: 42px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  background: #f1f5f9;
+}
+
+.notification-box {
+  position: relative;
+}
+
+.notification-count {
+  position: absolute;
+
+  top: -5px;
+  right: -5px;
+
+  background: red;
+
+  color: white;
+
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  font-size: 11px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-profile {
+  width: 45px;
+  height: 45px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+
+  cursor: pointer;
+
+  border: 2px solid #2563eb;
+}
+/* ===============================
+   DESKTOP LOGIN
+================================ */
+
+.login-btn {
+  background: #2563eb;
+
+  color: white !important;
+
+  padding: 11px 22px;
+
+  border-radius: 12px;
+
+  text-decoration: none;
+
+  font-weight: 600;
+}
+
+/* ===============================
+   MOBILE LOGIN BUTTON
+================================ */
+
+.mobile-login-btn {
+  display: none;
+
+  width: 100%;
+
+  padding: 12px 25px;
+
+  border-radius: 12px;
+
+  background: #2563eb;
+
+  color: white !important;
+
+  text-decoration: none;
+
+  font-weight: 700;
+
+  text-align: center;
+
+  box-sizing: border-box;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+
+@media (max-width: 900px) {
+  .menu-btn {
+    display: block;
+  }
+
+  .search-wrapper {
+    display: none;
+  }
+
+  .nav-links {
+    position: absolute;
+
+    top: 75px;
+
+    left: 0;
+
+    width: 100%;
+
+    background: white;
+
+    flex-direction: column;
+
+    align-items: stretch;
+
+    gap: 18px;
+
+    padding: 25px;
+
+    display: none;
+
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  /* menu links */
+
+  .nav-links a {
+    width: 100%;
+
+    padding: 10px;
+  }
+
+  /* SHOW MOBILE LOGIN */
+
+  .mobile-login-btn {
+    display: block !important;
+  }
+
+  /* hide desktop login */
+
+  .right-section > .login-btn {
+    display: none;
+  }
+
+  .right-section {
+    gap: 10px;
+  }
+
+  .logo span {
+    font-size: 20px;
+  }
+}
