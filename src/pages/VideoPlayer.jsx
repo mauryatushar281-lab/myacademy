@@ -4,68 +4,104 @@ import { saveProgress } from "../services/progressService";
 export default function VideoPlayer({ lecture, courseId }) {
   const videoRef = useRef(null);
 
-  // Restore saved progress
+  // ================= Restore Saved Position =================
   useEffect(() => {
-    if (!lecture) return;
+    if (!lecture || !videoRef.current) return;
 
-    const savedTime = localStorage.getItem(`lecture-${lecture._id}`);
+    const video = videoRef.current;
 
-    if (savedTime && videoRef.current) {
-      videoRef.current.currentTime = Number(savedTime);
-    }
+    const restoreTime = () => {
+      const savedTime = localStorage.getItem(`lecture-${lecture._id}`);
+
+      if (savedTime) {
+        video.currentTime = Number(savedTime);
+      }
+    };
+
+    video.addEventListener("loadedmetadata", restoreTime);
+
+    return () => {
+      video.removeEventListener("loadedmetadata", restoreTime);
+    };
   }, [lecture]);
 
-  // Save locally while watching
-  const handleTimeUpdate = async () => {
-    if (!videoRef.current) return;
-
-    const current = videoRef.current.currentTime;
-    const duration = videoRef.current.duration;
-
-    localStorage.setItem(`lecture-${lecture._id}`, current);
-
-    if (duration > 0 && current / duration >= 0.9) {
-      try {
-        await saveProgress({
-          courseId,
-          lectureId: lecture._id,
-          watchedTime: Math.floor(current),
-          completed: true,
-        });
-      } catch (err) {
-        console.log(err);
-      }
-    }
-  };
-  // Send progress to backend every 10 seconds
+  // ================= Save Progress Every 10 Seconds =================
   useEffect(() => {
-    if (!lecture) return;
+    if (!lecture || !videoRef.current) return;
 
     const interval = setInterval(async () => {
-      if (!videoRef.current) return;
+      const video = videoRef.current;
+
+      if (!video) return;
+
+      const watchedTime = Math.floor(video.currentTime);
+      const duration = Math.floor(video.duration || lecture.duration || 0);
+
+      localStorage.setItem(`lecture-${lecture._id}`, watchedTime);
 
       try {
         await saveProgress({
           courseId,
           lectureId: lecture._id,
-          watchedTime: Math.floor(videoRef.current.currentTime),
+          watchedTime,
+          completed: duration > 0 && watchedTime >= duration * 0.9,
         });
+
+        console.log("Progress Saved:", watchedTime);
       } catch (err) {
-        console.error(err);
+        console.error("Save Progress Error:", err);
       }
     }, 10000);
 
     return () => clearInterval(interval);
   }, [lecture, courseId]);
 
+  // ================= Save When Video Ends =================
+  const handleEnded = async () => {
+    try {
+      await saveProgress({
+        courseId,
+        lectureId: lecture._id,
+        watchedTime: lecture.duration,
+        completed: true,
+      });
+
+      localStorage.removeItem(`lecture-${lecture._id}`);
+
+      console.log("Lecture Completed");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  // ================= Save Position While Watching =================
+  const handleTimeUpdate = () => {
+    if (!videoRef.current) return;
+
+    // debugg
+    // const current = Math.floor(videoRef.current.currentTime);
+
+    // console.log("Current Time:", current);
+
+    localStorage.setItem(
+      `lecture-${lecture._id}`,
+      Math.floor(videoRef.current.currentTime),
+    );
+  };
+
   return (
     <video
+      key={lecture._id}
       ref={videoRef}
-      controls
       width="100%"
-      src={lecture.videoUrl}
+      controls
+      controlsList="nodownload"
       onTimeUpdate={handleTimeUpdate}
-    />
+      onEnded={handleEnded}
+    >
+      <source src={lecture.videoUrl} type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
   );
 }
 

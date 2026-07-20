@@ -26,6 +26,7 @@ import AdminLearning from "./pages/admin/AdminLearning/AdminLearning";
 import UploadLecture from "./pages/admin/Upload/UploadLectures/UploadLecture";
 import UploadContent from "./pages/admin/Upload/UploadContent/UploadContent";
 import Students from "./pages/admin/Students/Students";
+import ContactMessages from"./pages/admin/ContactMessage/ContactMessages"
 
 function App() {
   return (
@@ -132,6 +133,11 @@ function App() {
             </AdminRoute>
           }
         />
+        <Route path="/admin-contactList" element={
+          <AdminRoute>
+            <ContactMessages />
+          </AdminRoute>
+        } />
         {/* <Route path="/admin-learning" element={<AdminLearning />} />
         <Route path="/admin-Analytics" element={<Analytics />} />
         <Route path="/admin-uploads" element={<UploadLecture />} />

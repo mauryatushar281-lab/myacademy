@@ -1,3 +1,136 @@
+// import { useState } from "react";
+// import { UploadCloud, Loader, CheckCircle } from "lucide-react";
+
+// import API from "@/services/api";
+
+// export default function UploadLecture() {
+//   const courseId = "6a27d81fdd248a2a6f31afb9";
+
+//   const [title, setTitle] = useState("");
+//   const [description, setDescription] = useState("");
+//   const [order, setOrder] = useState(1);
+//   const [isFree, setIsFree] = useState(false);
+
+//   const [video, setVideo] = useState(null);
+
+//   const [preview, setPreview] = useState("");
+
+//   const [loading, setLoading] = useState(false);
+
+//   const [success, setSuccess] = useState(false);
+
+//   const handleVideo = (e) => {
+//     const file = e.target.files[0];
+
+//     if (!file) return;
+
+//     setVideo(file);
+
+//     setPreview(URL.createObjectURL(file));
+//   };
+
+//   const uploadLecture = async () => {
+//     if (!title || !video) {
+//       alert("Fill all required fields");
+//       return;
+//     }
+
+//     try {
+//       setLoading(true);
+
+//       const formData = new FormData();
+
+//       formData.append("title", title);
+
+//       formData.append("description", description);
+
+//       formData.append("order", order);
+
+//       formData.append("isFree", isFree);
+
+//       formData.append("video", video);
+
+//       const res = await API.post(
+//         `/lectures/${courseId}`,
+
+//         formData,
+
+//         {
+//           headers: {
+//             "Content-Type": "multipart/form-data",
+//           },
+//         },
+//       );
+
+//       console.log(res.data);
+
+//       setSuccess(true);
+
+//       setTitle("");
+
+//       setDescription("");
+
+//       setOrder(1);
+
+//       setVideo(null);
+
+//       setPreview("");
+//     } catch (err) {
+//       console.log(err.response?.data || err);
+
+//       alert("Upload failed");
+//     } finally {
+//       setLoading(false);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <input
+//         placeholder="Lecture Title"
+//         value={title}
+//         onChange={(e) => setTitle(e.target.value)}
+//       />
+
+//       <textarea
+//         placeholder="Description"
+//         value={description}
+//         onChange={(e) => setDescription(e.target.value)}
+//       />
+
+//       <input
+//         type="number"
+//         value={order}
+//         onChange={(e) => setOrder(e.target.value)}
+//       />
+
+//       <label>
+//         <input
+//           type="checkbox"
+//           checked={isFree}
+//           onChange={(e) => setIsFree(e.target.checked)}
+//         />
+//         Free Lecture
+//       </label>
+
+//       <input type="file" accept="video/*" onChange={handleVideo} />
+
+//       {preview && <video controls width="500" src={preview} />}
+
+//       <button onClick={uploadLecture} disabled={loading}>
+//         {loading ? "Uploading..." : "Upload Lecture"}
+//       </button>
+
+//       {success && (
+//         <p>
+//           <CheckCircle />
+//           Lecture Uploaded
+//         </p>
+//       )}
+//     </div>
+//   );
+// }
+
 import { useState } from "react";
 // import axios from "axios";
 import { UploadCloud, Video, CheckCircle, Loader } from "lucide-react";

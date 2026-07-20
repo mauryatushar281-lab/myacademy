@@ -1,0 +1,849 @@
+/* ================================
+   CONTACT ADMIN PAGE
+================================ */
+
+.contact-admin-page {
+  min-height: 100vh;
+  padding: 35px;
+  background: #f5f7fb;
+}
+
+/* ================================
+   HEADER
+================================ */
+
+.contact-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  color: #fff;
+
+  border-radius: 18px;
+
+  padding: 28px 35px;
+
+  margin-bottom: 30px;
+
+  box-shadow: 0 18px 40px rgba(37, 99, 235, 0.18);
+}
+
+.contact-header h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.contact-header p {
+  font-size: 15px;
+  opacity: .9;
+}
+
+.contact-count {
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,.15);
+
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px solid rgba(255,255,255,.25);
+}
+
+.contact-count span {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.contact-count small {
+  font-size: 14px;
+}
+
+/* ================================
+   TABLE CONTAINER
+================================ */
+
+.contact-table-container {
+
+  background: white;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 35px rgba(0,0,0,.08);
+
+  border: 1px solid #edf2f7;
+}
+
+/* ================================
+   TABLE
+================================ */
+
+.contact-table {
+
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+.contact-table thead {
+
+  background: #1e40af;
+}
+
+.contact-table thead th {
+
+  color: white;
+
+  text-align: left;
+
+  padding: 18px 22px;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  letter-spacing: .5px;
+}
+
+.contact-table tbody td {
+
+  padding: 20px;
+
+  color: #374151;
+
+  border-bottom: 1px solid #edf2f7;
+
+  font-size: 15px;
+}
+
+.contact-table tbody tr {
+
+  transition: .35s;
+}
+
+.contact-table tbody tr:hover {
+
+  background: #f8fbff;
+
+  transform: scale(1.003);
+}
+
+/* ================================
+   STATUS BADGE
+================================ */
+
+.status-badge {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  padding: 7px 16px;
+
+  border-radius: 30px;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.status-badge.new {
+
+  color: #a16207;
+
+  background: #fef3c7;
+}
+
+.status-badge.replied {
+
+  color: #166534;
+
+  background: #dcfce7;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+
+.action-buttons{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+flex-wrap:wrap;
+}
+
+.reply-btn,
+.delete-btn,
+.done-btn{
+
+padding:10px 18px;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-size:14px;
+
+font-weight:600;
+
+transition:.35s;
+}
+
+/* Reply */
+
+.reply-btn{
+
+background:#2563eb;
+
+color:white;
+}
+
+.reply-btn:hover{
+
+background:#1d4ed8;
+
+transform:translateY(-2px);
+
+box-shadow:0 8px 18px rgba(37,99,235,.35);
+}
+
+/* Delete */
+
+.delete-btn{
+
+background:#ef4444;
+
+color:white;
+}
+
+.delete-btn:hover{
+
+background:#dc2626;
+
+transform:translateY(-2px);
+
+box-shadow:0 8px 18px rgba(239,68,68,.35);
+}
+
+/* Done */
+
+.done-btn{
+
+background:#10b981;
+
+color:white;
+
+cursor:default;
+}
+
+/* ================================
+   EMPTY MESSAGE
+================================ */
+
+.empty-message{
+
+padding:60px;
+
+text-align:center;
+
+font-size:18px;
+
+color:#9ca3af;
+}
+
+/* ================================
+   MOBILE CARD
+================================ */
+
+.mobile-contact-list{
+
+display:none;
+}
+
+.contact-card{
+
+background:white;
+
+border-radius:18px;
+
+padding:22px;
+
+margin-bottom:20px;
+
+box-shadow:0 12px 30px rgba(0,0,0,.08);
+
+border:1px solid #edf2f7;
+
+transition:.35s;
+}
+
+.contact-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 18px 40px rgba(0,0,0,.12);
+}
+
+.card-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:18px;
+}
+
+.card-top h3{
+
+font-size:20px;
+
+color:#111827;
+}
+
+.card-body p{
+
+margin-bottom:15px;
+
+line-height:1.6;
+
+color:#4b5563;
+}
+
+.card-actions{
+
+display:flex;
+
+gap:12px;
+
+margin-top:20px;
+}
+
+.empty-card{
+
+background:white;
+
+padding:60px;
+
+text-align:center;
+
+border-radius:18px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+/* =====================================================
+   LARGE LAPTOPS (1400px and below)
+===================================================== */
+
+@media (max-width: 1400px) {
+
+  .contact-admin-page {
+    padding: 30px;
+  }
+
+  .contact-header {
+    padding: 25px 30px;
+  }
+
+  .contact-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .contact-count {
+    width: 110px;
+    height: 110px;
+  }
+
+  .contact-table th,
+  .contact-table td {
+    padding: 16px;
+    font-size: 14px;
+  }
+
+}
+
+/* =====================================================
+   LAPTOPS (1200px)
+===================================================== */
+
+@media (max-width:1200px){
+
+.contact-admin-page{
+
+padding:25px;
+
+}
+
+.contact-header{
+
+padding:25px;
+
+gap:20px;
+
+}
+
+.contact-header h2{
+
+font-size:1.7rem;
+
+}
+
+.contact-header p{
+
+font-size:14px;
+
+}
+
+.contact-count{
+
+width:100px;
+
+height:100px;
+
+}
+
+.contact-count span{
+
+font-size:28px;
+
+}
+
+.contact-count small{
+
+font-size:13px;
+
+}
+
+.contact-table{
+
+min-width:950px;
+
+}
+
+.contact-table-container{
+
+overflow-x:auto;
+
+scrollbar-width:thin;
+
+}
+
+.action-buttons{
+
+flex-direction:column;
+
+align-items:stretch;
+
+}
+
+.reply-btn,
+.delete-btn,
+.done-btn{
+
+width:100%;
+
+}
+
+}
+
+/* =====================================================
+   TABLETS (992px)
+===================================================== */
+
+@media (max-width:992px){
+
+.contact-admin-page{
+
+padding:20px;
+
+}
+
+.contact-header{
+
+flex-direction:column;
+
+align-items:center;
+
+text-align:left;
+
+gap:25px;
+
+}
+
+.contact-count{
+
+align-self:center;
+
+}
+
+.contact-table{
+
+min-width:900px;
+
+}
+
+.contact-table-container{
+
+overflow-x:auto;
+
+border-radius:16px;
+
+}
+
+.contact-table-container::-webkit-scrollbar{
+
+height:8px;
+
+}
+
+.contact-table-container::-webkit-scrollbar-thumb{
+
+background:#2563eb;
+
+border-radius:50px;
+
+}
+
+.contact-table th{
+
+font-size:14px;
+
+padding:15px;
+
+}
+
+.contact-table td{
+
+padding:15px;
+
+font-size:14px;
+
+}
+
+.reply-btn,
+.delete-btn,
+.done-btn{
+
+padding:9px 15px;
+
+font-size:13px;
+
+}
+
+}
+
+/* =====================================================
+   SMALL TABLETS (768px)
+===================================================== */
+
+@media (max-width:768px){
+
+.contact-admin-page{
+
+padding:16px;
+
+}
+
+.contact-header{
+
+padding:20px;
+
+}
+
+.contact-header h2{
+
+font-size:1.5rem;
+
+}
+
+.contact-header p{
+
+font-size:13px;
+
+}
+
+.contact-count{
+
+width:90px;
+
+height:90px;
+
+}
+
+.contact-count span{
+
+font-size:24px;
+
+}
+
+.contact-count small{
+
+font-size:12px;
+
+}
+
+/* Hide desktop table */
+
+.contact-table-container{
+
+display:none;
+
+}
+
+/* Show cards */
+
+.mobile-contact-list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:18px;
+
+}
+
+.contact-card{
+
+padding:18px;
+
+border-radius:18px;
+
+background:#fff;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+transition:.35s;
+
+}
+
+.contact-card:hover{
+
+transform:translateY(-6px);
+
+box-shadow:0 25px 45px rgba(37,99,235,.15);
+
+}
+
+.card-top{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:15px;
+
+}
+
+.card-top h3{
+
+font-size:20px;
+
+color:#111827;
+
+}
+
+.card-body{
+
+display:flex;
+
+flex-direction:column;
+
+gap:12px;
+
+}
+
+.card-body p{
+
+margin:0;
+
+font-size:14px;
+
+line-height:1.6;
+
+color:#4b5563;
+
+}
+
+.card-actions{
+
+display:flex;
+
+gap:12px;
+
+margin-top:20px;
+
+}
+
+.card-actions button{
+
+flex:1;
+
+}
+
+}
+
+/* =====================================================
+   MOBILE (576px)
+===================================================== */
+
+@media (max-width:576px){
+
+.contact-admin-page{
+
+padding:14px;
+
+}
+
+.contact-header{
+
+padding:18px;
+
+border-radius:16px;
+
+}
+
+.contact-header h2{
+
+font-size:1.35rem;
+
+}
+
+.contact-header p{
+
+font-size:12px;
+
+}
+
+.contact-count{
+
+width:80px;
+
+height:80px;
+
+}
+
+.contact-count span{
+
+font-size:22px;
+
+}
+
+.contact-count small{
+
+font-size:11px;
+
+}
+
+.contact-card{
+
+padding:16px;
+
+}
+
+.card-top{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:10px;
+
+}
+
+.card-actions{
+
+flex-direction:column;
+
+}
+
+.card-actions button{
+
+width:100%;
+
+}
+
+}
+
+/* =====================================================
+   SMALL MOBILE (400px)
+===================================================== */
+
+@media (max-width:400px){
+
+.contact-admin-page{
+
+padding:10px;
+
+}
+
+.contact-header{
+
+padding:15px;
+
+}
+
+.contact-header h2{
+
+font-size:1.2rem;
+
+}
+
+.contact-card{
+
+padding:14px;
+
+}
+
+.card-top h3{
+
+font-size:18px;
+
+}
+
+.card-body p{
+
+font-size:13px;
+
+}
+
+.reply-btn,
+.delete-btn,
+.done-btn{
+
+padding:10px;
+
+font-size:13px;
+
+}
+
+.status-badge{
+
+font-size:12px;
+
+padding:6px 12px;
+
+}
+
+}

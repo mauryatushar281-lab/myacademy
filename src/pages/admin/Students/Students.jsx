@@ -14,6 +14,8 @@ import {
 
 import "./Students.css";
 
+import AdminHeader from "../../../components/AdminHeader/AdminHeader";
+
 export default function Students() {
   const [students, setStudents] = useState([]);
 
@@ -104,7 +106,9 @@ export default function Students() {
 
   return (
     <div className="students-page">
+      <AdminHeader  />
       <div className="students-header">
+        
         <div>
           <h1>Student Management</h1>
 

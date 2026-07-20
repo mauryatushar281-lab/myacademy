@@ -7,7 +7,7 @@ import "./Learning.css";
 
 function Learning() {
   const { courseId } = useParams();
-
+  console.log("Course ID:", courseId);
   const [course, setCourse] = useState(null);
   const [lectures, setLectures] = useState([]);
   const [currentLecture, setCurrentLecture] = useState(null);

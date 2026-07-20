@@ -14,6 +14,9 @@ import {
   CartesianGrid,
 } from "recharts";
 
+
+import AdminHeader from "../../../components/AdminHeader/AdminHeader";
+
 import "./Analytics.css";
 
 const Analytics = () => {
@@ -112,6 +115,7 @@ const Analytics = () => {
 
   return (
     <div className="analytics">
+      <AdminHeader />
       <h1>📊 Analytics</h1>
 
       <p className="subtitle">Track your academy growth</p>

@@ -8,7 +8,7 @@ import {
   editCourseApi,
   removeCourse,
 } from "../../../services/AdmincourseService";
-
+import AdminHeader from "../../../components/AdminHeader/AdminHeader";
 // import { Plus, X, Edit, Trash2, Search } from "lucide-react";
 
 import "./AdminLearning.css";
@@ -154,6 +154,7 @@ function AdminLearning() {
   return (
     <div className="admin-learning">
       {/* HEADER */}
+      <AdminHeader />
 
       <div className="learning-header">
         <h1>Manage Courses</h1>
