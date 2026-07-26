@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+// here for free learning
 import Home from "./pages/public/Home/Home";
 import Courses from "./pages/public/Courses/Courses";
 import About from "./pages/public/About/About";
@@ -8,6 +8,13 @@ import Login from "./pages/auth/Login/Login";
 import ForgotPassword from "./pages/auth/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword/ResetPassword";
 import CourseCategory from "./pages/public/CourseCatagories/CourseCategory";
+import FreeLearning from "./pages/public/FreeLearning/FreeLearning";
+import Subjects from "./pages/public/FreeLearning/Subjects/Subjects";
+import Chapters from "./pages/public/FreeLearning/Chapters/Chapters";
+import AnimationPlayer from "./pages/public/FreeLearning/AnimationPlayer/AnimationPlayer"
+
+// import ElectrochemistryIntro from "./animations/class12/chemistry/electrochemistry/ElectrochemistryIntro"
+// here free learning end
 
 import StudentDashboard from "./pages/student/StudentDashBoard/StudentDashboard";
 import Profile from "./pages/student/Student-Profile/Profile";
@@ -26,12 +33,14 @@ import AdminLearning from "./pages/admin/AdminLearning/AdminLearning";
 import UploadLecture from "./pages/admin/Upload/UploadLectures/UploadLecture";
 import UploadContent from "./pages/admin/Upload/UploadContent/UploadContent";
 import Students from "./pages/admin/Students/Students";
-import ContactMessages from"./pages/admin/ContactMessage/ContactMessages"
+import ContactMessages from "./pages/admin/ContactMessage/ContactMessages";
+// import ElectrochemicalCells from "./animations/class12/chemistry/electrochemistry/ElectrochemicalCells/ElectrochemicalCells";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* here for free Routes */}
         <Route path="/" element={<Home />} />
 
         <Route path="/courses" element={<Courses />} />
@@ -41,6 +50,26 @@ function App() {
         <Route path="/contact" element={<Contact />} />
 
         <Route path="/courses/:category" element={<CourseCategory />} />
+
+        <Route path="/free-learning" element={<FreeLearning />} />
+        <Route path="/free-learning/:className" element={<Subjects />} />
+        <Route
+          path="/free-learning/:className/:subject"
+          element={<Chapters />}
+        />
+
+        <Route
+          path="/free-learning/:className/:subject/:chapterId"
+          element={<AnimationPlayer />}
+        />
+
+
+
+
+
+{/* <Route path="/Electro-intro" element={<ElectrochemistryIntro/>} /> */}
+{/* <Route path="/electrochemical-cells" element={<ElectrochemicalCells/>}  /> */}
+        {/* here end free learning */}
 
         <Route path="/login" element={<Login />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
@@ -133,11 +162,14 @@ function App() {
             </AdminRoute>
           }
         />
-        <Route path="/admin-contactList" element={
-          <AdminRoute>
-            <ContactMessages />
-          </AdminRoute>
-        } />
+        <Route
+          path="/admin-contactList"
+          element={
+            <AdminRoute>
+              <ContactMessages />
+            </AdminRoute>
+          }
+        />
         {/* <Route path="/admin-learning" element={<AdminLearning />} />
         <Route path="/admin-Analytics" element={<Analytics />} />
         <Route path="/admin-uploads" element={<UploadLecture />} />

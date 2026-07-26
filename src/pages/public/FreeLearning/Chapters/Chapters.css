@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.chapters-page {
+  min-height: 100vh;
+
+  padding: 80px 6%;
+
+  background: linear-gradient(135deg, #eef6ff, #f8fbff, #ffffff);
+}
+
+.breadcrumb {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  color: #64748b;
+
+  font-size: 0.95rem;
+
+  margin-bottom: 25px;
+
+  flex-wrap: wrap;
+}
+
+.breadcrumb span {
+  color: #2563eb;
+
+  font-weight: 600;
+}
+
+.chapters-page h1 {
+  font-size: 3rem;
+
+  font-weight: 700;
+
+  color: #0f172a;
+
+  margin-bottom: 15px;
+}
+
+.chapters-page > p {
+  font-size: 1.05rem;
+
+  color: #64748b;
+
+  margin-bottom: 50px;
+
+  max-width: 700px;
+
+  line-height: 1.7;
+}
+
+.chapter-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+  gap: 35px;
+}
+
+.chapter-card {
+  background: white;
+
+  border-radius: 24px;
+
+  padding: 30px;
+
+  cursor: pointer;
+
+  transition: 0.35s;
+
+  position: relative;
+
+  overflow: hidden;
+
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+.chapter-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: 0;
+
+  height: 6px;
+
+  width: 100%;
+
+  background: linear-gradient(90deg, #2563eb, #06b6d4, #22c55e);
+}
+
+.chapter-card:hover {
+  transform: translateY(-10px);
+
+  box-shadow: 0 25px 55px rgba(37, 99, 235, 0.15);
+}
+
+.chapter-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-bottom: 20px;
+}
+
+.chapter-number {
+  background: #dbeafe;
+
+  color: #2563eb;
+
+  padding: 8px 14px;
+
+  border-radius: 30px;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+}
+
+.duration {
+  background: #f1f5f9;
+
+  padding: 8px 14px;
+
+  border-radius: 30px;
+
+  font-size: 0.85rem;
+}
+
+.chapter-card h2 {
+  font-size: 1.7rem;
+
+  margin-bottom: 12px;
+
+  color: #0f172a;
+}
+
+.chapter-card p {
+  color: #64748b;
+
+  line-height: 1.7;
+
+  margin-bottom: 25px;
+}
+
+.chapter-features {
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+
+  gap: 15px;
+
+  margin-bottom: 30px;
+}
+
+.chapter-features span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  background: #f8fafc;
+
+  padding: 12px;
+
+  border-radius: 12px;
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
+}
+
+.chapter-features svg {
+  color: #2563eb;
+}
+
+.chapter-card button {
+  width: 100%;
+
+  border: none;
+
+  padding: 15px;
+
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 10px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.chapter-card button:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 992px) {
+  .chapters-page {
+    padding: 70px 5%;
+  }
+}
+
+@media (max-width: 768px) {
+  .chapters-page {
+    padding: 60px 20px;
+  }
+
+  .chapters-page h1 {
+    font-size: 2.2rem;
+
+    text-align: center;
+  }
+
+  .chapters-page > p {
+    text-align: center;
+  }
+
+  .chapter-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .breadcrumb {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .chapter-card {
+    padding: 22px;
+  }
+
+  .chapter-card h2 {
+    font-size: 1.4rem;
+  }
+
+  .chapter-features {
+    grid-template-columns: 1fr;
+  }
+
+  .chapter-card button {
+    padding: 14px;
+  }
+}

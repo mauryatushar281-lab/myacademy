@@ -1,0 +1,246 @@
+/* Google Font */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Background */
+
+.free-learning {
+  min-height: 100vh;
+  padding: 80px 6%;
+  background: linear-gradient(135deg, #eef5ff, #f8fbff, #ffffff);
+}
+
+/* Heading */
+
+.free-learning h1 {
+  text-align: center;
+  font-size: 3rem;
+  color: #0f172a;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.free-learning p {
+  text-align: center;
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-bottom: 60px;
+}
+
+/* Grid */
+
+.class-grid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+
+  gap: 35px;
+
+  align-items: center;
+}
+
+/* Card */
+
+.class-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.75);
+
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.4);
+
+  border-radius: 25px;
+
+  padding: 40px 30px;
+
+  cursor: pointer;
+
+  transition: 0.45s ease;
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Gradient Top Border */
+
+.class-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  width: 100%;
+
+  height: 6px;
+
+  background: linear-gradient(90deg, #2563eb, #06b6d4, #22c55e);
+}
+
+/* Decorative Circle */
+
+.class-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -40px;
+
+  top: -40px;
+
+  width: 120px;
+
+  height: 120px;
+
+  background: rgba(37, 99, 235, 0.08);
+
+  border-radius: 50%;
+
+  transition: 0.5s;
+}
+
+/* Hover */
+
+.class-card:hover {
+  transform: translateY(-12px);
+
+  box-shadow: 0 30px 60px rgba(37, 99, 235, 0.18);
+}
+
+.class-card:hover::after {
+  transform: scale(1.5);
+}
+
+/* Icon */
+
+.class-icon {
+  width: 75px;
+
+  height: 75px;
+
+  border-radius: 18px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  font-size: 34px;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+  color: white;
+
+  margin-bottom: 25px;
+
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+}
+
+/* Title */
+
+.class-card h2 {
+  font-size: 1.8rem;
+
+  font-weight: 700;
+
+  color: #0f172a;
+
+  margin-bottom: 10px;
+}
+
+/* Subtitle */
+
+.class-card p {
+  margin: 0;
+
+  font-size: 0.95rem;
+
+  line-height: 1.6;
+
+  color: #64748b;
+}
+
+/* Button */
+
+.class-btn {
+  margin-top: 25px;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 12px 22px;
+
+  border-radius: 12px;
+
+  background: #2563eb;
+
+  color: white;
+
+  font-weight: 600;
+
+  transition: 0.3s;
+}
+
+.class-card:hover .class-btn {
+  background: #1d4ed8;
+}
+
+/* Responsive */
+
+@media (max-width: 992px) {
+  .free-learning {
+    padding: 70px 5%;
+  }
+
+  .free-learning h1 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .class-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .free-learning h1 {
+    font-size: 2.1rem;
+  }
+
+  .class-card {
+    padding: 30px 22px;
+  }
+}
+
+@media (max-width: 480px) {
+  .free-learning {
+    padding: 50px 20px;
+  }
+
+  .free-learning h1 {
+    font-size: 1.8rem;
+  }
+
+  .class-card {
+    border-radius: 18px;
+
+    padding: 25px;
+  }
+
+  .class-card h2 {
+    font-size: 1.5rem;
+  }
+}

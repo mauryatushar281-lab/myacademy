@@ -164,6 +164,4 @@ function Navbar() {
 
 export default Navbar;
 
-// <NavLink to="/login" className="login-btn">
-//   Login
-// </NavLink>
+
