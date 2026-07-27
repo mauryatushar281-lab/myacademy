@@ -3,6 +3,11 @@ import { getProfile } from "../../../services/userService";
 import { useNavigate } from "react-router-dom";
 import "./StudentDashboard.css";
 
+const Morning = "/Forest.gif";
+const Afternoon = "/Sunset.gif";
+const Evening = "/Late at night.gif";
+const GoodNight = "/Counting stars.gif";
+
 import {
   GraduationCap,
   BookOpen,
@@ -43,14 +48,25 @@ function StudentDashboard() {
     navigate("/login");
   };
 
-  const hour = new Date().getHours();
+  const hour = new Date().getHours()+20;
 
-  const greeting =
-    hour < 12
-      ? "Good Morning ☀️"
-      : hour < 17
-        ? "Good Afternoon 🌤️"
-        : "Good Evening 🌙";
+  let greeting;
+  let greetingImage;
+
+  if (hour < 12) {
+    greeting = "Good Morning";
+    greetingImage = Morning;
+  } else if (hour < 17) {
+    greeting = "Good Afternoon";
+
+    greetingImage = Afternoon;
+  } else if (hour < 20) {
+    greeting = "Good Evening";
+    greetingImage = Evening;
+  } else {
+    greeting = "Good Night";
+    greetingImage = GoodNight;
+  }
 
   const stats = [
     {
@@ -99,12 +115,15 @@ function StudentDashboard() {
       {/* Header */}
 
       <div className="dashboard-header">
-        <div>
-          <h1>
-            {greeting}, {user?.name || "Student"} 👋
-          </h1>
+        <div className="welcome-box">
+          <img src={greetingImage} alt={greeting} className="greeting-image" />
+          <div>
+            <h1>
+              {greeting}, {user?.name || "Student"} 👋
+            </h1>
 
-          <p>Keep learning consistently and achieve your goals every day.</p>
+            <p>Keep learning consistently and achieve your goals every day.</p>
+          </div>
         </div>
 
         <div className="header-right">
@@ -237,7 +256,7 @@ function StudentDashboard() {
           </div>
         ) : (
           <div className="empty-dashboard">
-            <img src="/Online learning-amico.svg" alt="Start Learning" />
+            <img src="/Online learning.gif" alt="Start Learning" />
 
             <h2>Welcome to MyAcademy 🎉</h2>
 

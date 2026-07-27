@@ -2249,6 +2249,10 @@
   .activity-time {
     display: none;
   }
+
+  .welcome-box {
+    flex-direction: column;
+  }
 }
 
 /* ---------- Mobile (576px) ---------- */
@@ -2389,4 +2393,20 @@
   .activity-card {
     padding: 16px;
   }
+}
+
+.welcome-box {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+}
+
+.greeting-image {
+  width: 80px;
+
+  height: 80px;
+
+  object-fit: contain;
 }
