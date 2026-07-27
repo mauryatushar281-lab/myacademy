@@ -1,274 +1,382 @@
-.dashboard {
-  min-height: 100vh;
+/* ======================================================
+   DASHBOARD LAYOUT
+====================================================== */
+/* ========= 1. Dashboard Layout ========= */
 
-  padding: 40px 8%;
+/* ======================================================
+   DASHBOARD LAYOUT
+====================================================== */
 
-  background: #f8fafc;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.dashboard-header {
-  display: flex;
+.dashboard {
+  min-height: 100vh;
+  padding: 40px 7%;
+  background: linear-gradient(180deg, #f8fbff 0%, #f1f5f9 45%, #eef2ff 100%);
 
+  font-family: "Inter", "Segoe UI", sans-serif;
+
+  color: #1e293b;
+
+  overflow-x: hidden;
+
+  animation: fadeIn 0.5s ease;
+}
+
+/* Every section spacing */
+
+.dashboard-section {
+  margin-top: 55px;
+}
+
+.dashboard-section:first-of-type {
+  margin-top: 40px;
+}
+
+/* Section Heading */
+
+.dashboard-section h2 {
+  justify-self: anchor-center;
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #0f172a;
+  margin-bottom: 28px;
+  letter-spacing: -0.4px;
+}
+
+/* Section Header (Title + Button) */
+
+.section-header {
+  display: flex;
   justify-content: space-between;
   align-items: center;
 
-  margin-bottom: 40px;
+  margin-bottom: 28px;
 }
 
-.dashboard-header h1 {
-  font-size: 2.3rem;
-
-  color: #0f172a;
-
-  margin-bottom: 8px;
+.section-header h2 {
+  margin: 0;
 }
 
-.dashboard-header p {
-  color: #64748b;
-}
+/* General Card Design */
 
-/* here for profile  */
-/* Right Side Header */
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
+.dashboard-card {
+  background: rgba(255, 255, 255, 0.92);
 
-/* Profile Box */
-.profile-box {
-  width: 48px;
-  height: 48px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  backdrop-filter: blur(18px);
 
-  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  border-radius: 22px;
 
-  color: #ffffff;
-  cursor: pointer;
+  border: 1px solid rgba(226, 232, 240, 0.8);
 
   box-shadow:
-    0 8px 20px rgba(79, 70, 229, 0.25),
-    0 2px 8px rgba(0, 0, 0, 0.08);
+    0 12px 30px rgba(15, 23, 42, 0.06),
+    0 2px 8px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(79, 70, 229, 0.2);
+
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.08),
+    0 4px 14px rgba(15, 23, 42, 0.06);
+}
+
+/* Default Button */
+
+.dashboard button {
+  font-family: inherit;
 
   transition: all 0.3s ease;
 }
-.profile-box {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  cursor: pointer;
+.dashboard button:hover {
+  transform: translateY(-2px);
 }
 
-/* .profile-box:hover {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  cursor: pointer;
+.dashboard button:active {
+  transform: scale(0.98);
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* Links */
 
-  background: #f5f5f5;
-  transform: translateY(-3px);
-  box-shadow:
-    0 14px 28px rgba(79, 70, 229, 0.35),
-    0 4px 12px rgba(0, 0, 0, 0.12);
-} */
-.profile-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.dashboard a {
+  color: inherit;
 
-  border-radius: 50%;
+  text-decoration: none;
+}
+
+/* Images */
+
+.dashboard img {
+  max-width: 100%;
+
   display: block;
 }
 
-/* Logout Button */
+/* Scrollbar */
+
+.dashboard::-webkit-scrollbar {
+  width: 10px;
+}
+
+.dashboard::-webkit-scrollbar-track {
+  background: #edf2f7;
+}
+
+.dashboard::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+
+  border-radius: 50px;
+}
+
+.dashboard::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Loading */
+
+.loading-dashboard {
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-direction: column;
+}
+
+.loading-dashboard h2 {
+  font-size: 1.5rem;
+
+  font-weight: 600;
+
+  color: #475569;
+
+  animation: fadeLoading 1s infinite alternate;
+}
+
+/* Fade Animation */
+
+@keyframes fadeLoading {
+  from {
+    opacity: 0.4;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Smooth Fade */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+.dashboard > * {
+  animation: fadeUp 0.6s ease;
+}
+
+/* Selection */
+
+::selection {
+  background: #4f46e5;
+
+  color: white;
+}
+
+/* ========= 2. Header ========= */
+
+/* ======================================================
+   DASHBOARD HEADER
+====================================================== */
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  margin-bottom: 40px;
+  padding: 28px 35px;
+
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(18px);
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.08),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+
+  transition: all 0.35s ease;
+}
+
+.dashboard-header:hover {
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 20px 40px rgba(15, 23, 42, 0.1),
+    0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+/* Left Content */
+
+.dashboard-header h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #0f172a;
+
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.dashboard-header p {
+  max-width: 520px;
+
+  font-size: 1rem;
+  line-height: 1.7;
+
+  color: #64748b;
+}
+
+/* Right Side */
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  padding: 10px 12px;
+
+  border-radius: 18px;
+
+  background: rgba(248, 250, 252, 0.85);
+
+  backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(226, 232, 240, 0.8);
+}
+
+/* ======================================================
+   PROFILE
+====================================================== */
+
+.profile-box {
+  width: 58px;
+  height: 58px;
+
+  border-radius: 50%;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+
+  color: white;
+
+  border: 3px solid white;
+
+  box-shadow: 0 10px 24px rgba(79, 70, 229, 0.25);
+
+  transition: all 0.35s ease;
+}
+
+.profile-box:hover {
+  transform: scale(1.08);
+
+  box-shadow: 0 18px 35px rgba(79, 70, 229, 0.35);
+}
+
+.profile-image {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  display: block;
+}
+
+/* ======================================================
+   LOGOUT BUTTON
+====================================================== */
+
 .logout-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 
-  padding: 12px 18px;
+  padding: 12px 22px;
+
   border: none;
-  border-radius: 12px;
+  border-radius: 14px;
 
-  background: #ffffff;
+  background: white;
+
   color: #ef4444;
 
-  font-size: 14px;
+  font-size: 0.95rem;
   font-weight: 600;
+
   cursor: pointer;
 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.06);
 
   transition: all 0.3s ease;
 }
 
 .logout-btn:hover {
   background: #ef4444;
-  color: #ffffff;
-  transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.25);
+
+  color: white;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 14px 28px rgba(239, 68, 68, 0.28);
 }
 
-.logout-btn:active {
-  transform: scale(0.97);
+.logout-btn svg {
+  transition: transform 0.3s ease;
 }
 
-/* Mobile */
-@media (max-width: 768px) {
-  .header-right {
-    gap: 10px;
-  }
-
-  .profile-box {
-    width: 42px;
-    height: 42px;
-    cursor: pointer;
-  }
-
-  .logout-btn {
-    padding: 10px 14px;
-    font-size: 13px;
-  }
-}
-.header-right {
-  padding: 8px;
-  border-radius: 16px;
-  background: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(12px);
+.logout-btn:hover svg {
+  transform: rotate(-10deg);
 }
 
-/* here for profile end  */
+/* ======================================================
+   VIEW ALL BUTTON
+====================================================== */
 
-.stats-grid {
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-
-  gap: 25px;
-
-  margin-bottom: 50px;
-}
-
-.stat-card {
-  background: white;
-
-  padding: 30px;
-
-  border-radius: 22px;
-
-  text-align: center;
-
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-
-  transition: 0.3s;
-}
-
-.stat-card:hover {
-  transform: translateY(-8px);
-}
-
-.stat-card svg {
-  color: #2563eb;
-
-  margin-bottom: 15px;
-}
-
-.stat-card h2 {
-  font-size: 2rem;
-
-  color: #0f172a;
-}
-
-.stat-card p {
-  color: #64748b;
-}
-
-.dashboard-section {
-  margin-top: 50px;
-}
-
-.dashboard-section h2 {
-  margin-bottom: 25px;
-
-  color: #0f172a;
-}
-
-.course-grid {
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
-  gap: 25px;
-}
-
-.course-card {
-  background: white;
-
-  padding: 30px;
-
-  border-radius: 22px;
-
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.course-card h3 {
-  margin-bottom: 12px;
-
-  color: #0f172a;
-}
-
-.course-card p {
-  color: #64748b;
-
-  line-height: 1.7;
-}
-
-.progress-bar {
-  height: 10px;
-
-  background: #e2e8f0;
-
-  border-radius: 20px;
-
-  overflow: hidden;
-
-  margin: 20px 0;
-}
-
-.progress-fill {
-  height: 100%;
-
-  border-radius: 20px;
-
-  background: linear-gradient(135deg, #2563eb, #4f46e5);
-}
-
-.course-card span {
-  font-weight: 600;
-
-  color: #2563eb;
-}
-
-.course-card button {
-  width: 100%;
-
-  margin-top: 20px;
-
-  padding: 14px;
+.view-all-btn {
+  padding: 10px 20px;
 
   border: none;
 
@@ -278,51 +386,2007 @@
 
   color: white;
 
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+.view-all-btn:hover {
+  transform: translateY(-3px);
+
+  box-shadow: 0 16px 28px rgba(37, 99, 235, 0.35);
+}
+
+/* ========= 3. Continue Learning Banner ========= */
+
+/* ======================================================
+   CONTINUE LEARNING BANNER
+====================================================== */
+
+.continue-banner {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+
+  padding: 35px 40px;
+  margin-bottom: 45px;
+
+  overflow: hidden;
+
+  border-radius: 28px;
+
+  background: linear-gradient(135deg, #2563eb 0%, #4f46e5 50%, #7c3aed 100%);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 20px 45px rgba(79, 70, 229, 0.28),
+    0 10px 25px rgba(37, 99, 235, 0.18);
+
+  transition: all 0.35s ease;
+  animation:
+    fadeUp 0.6s ease,
+    floating 5s ease-in-out infinite;
+}
+
+.continue-banner:hover {
+  transform: translateY(-6px);
+
+  box-shadow:
+    0 28px 55px rgba(79, 70, 229, 0.35),
+    0 15px 30px rgba(37, 99, 235, 0.22);
+}
+
+/* Decorative Circles */
+
+.continue-banner::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  border-radius: 50%;
+
+  top: -110px;
+  right: -80px;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  pointer-events: none;
+}
+
+.continue-banner::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  border-radius: 50%;
+
+  bottom: -70px;
+  left: -40px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  pointer-events: none;
+}
+
+/* Left Content */
+
+.continue-banner > div {
+  position: relative;
+  z-index: 2;
+}
+
+/* Tag */
+
+.continue-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  padding: 8px 16px;
+
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.18);
+
+  backdrop-filter: blur(10px);
+
+  font-size: 0.9rem;
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+}
+
+.continue-tag svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Title */
+
+.continue-banner h2 {
+  font-size: 2rem;
+  font-weight: 700;
+
+  margin-bottom: 12px;
+
+  color: white;
+}
+
+/* Progress */
+
+.continue-banner p {
+  font-size: 1rem;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  line-height: 1.7;
+}
+
+/* Resume Button */
+
+.continue-banner button {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 15px 30px;
+
+  border: none;
+  border-radius: 14px;
+
+  background: #ffffff;
+
+  color: #2563eb;
+
+  font-size: 0.95rem;
   font-weight: 700;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  transition: all 0.3s ease;
+
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.continue-banner button:hover {
+  background: #f8fafc;
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 18px 30px rgba(0, 0, 0, 0.18);
+}
+
+.continue-banner button svg {
+  transition: transform 0.3s ease;
+}
+
+.continue-banner button:hover svg {
+  transform: translateX(5px);
+}
+
+/* Optional Progress Percentage */
+
+.continue-banner .progress-value {
+  margin-top: 18px;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Progress Bar */
+
+.continue-progress {
+  width: 320px;
+  max-width: 100%;
+
+  height: 10px;
+
+  margin-top: 14px;
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.continue-progress-fill {
+  height: 100%;
+
+  border-radius: 20px;
+
+  background: linear-gradient(90deg, #facc15, #f59e0b);
+
+  transition: width 0.5s ease;
+}
+
+/* Floating Animation */
+
+@keyframes bannerFloat {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.continue-banner {
+  animation: bannerFloat 5s ease-in-out infinite;
+}
+
+/* ========= 4. Statistics Cards ========= */
+
+/* ======================================================
+   STATISTICS CARDS
+====================================================== */
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+
+  gap: 25px;
+
+  margin: 45px 0;
+}
+
+/* Card */
+
+.stat-card {
+  position: relative;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  padding: 30px 28px;
+
+  border-radius: 22px;
+
+  border: 1px solid #edf2f7;
+
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.06),
+    0 4px 10px rgba(15, 23, 42, 0.03);
+
+  transition: all 0.35s ease;
+
+  cursor: pointer;
+}
+
+/* Gradient Top Border */
+
+.stat-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: linear-gradient(90deg, #2563eb, #4f46e5, #7c3aed);
+}
+
+/* Hover */
+
+.stat-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 22px 40px rgba(15, 23, 42, 0.12);
+
+  border-color: rgba(79, 70, 229, 0.15);
+}
+
+/* Icon Circle */
+
+.stat-card svg {
+  width: 30px;
+  height: 30px;
+
+  color: #4f46e5;
+
+  padding: 12px;
+
+  box-sizing: content-box;
+
+  border-radius: 16px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(79, 70, 229, 0.12),
+    rgba(37, 99, 235, 0.08)
+  );
+
+  margin-bottom: 22px;
+
+  transition: all 0.35s ease;
+}
+
+.stat-card:hover svg {
+  transform: rotate(-8deg) scale(1.08);
+
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+
+  color: white;
+}
+
+/* Value */
+
+.stat-card h2 {
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  color: #0f172a;
+
+  margin-bottom: 8px;
+}
+
+/* Label */
+
+.stat-card p {
+  font-size: 0.95rem;
+
+  color: #64748b;
+
+  font-weight: 500;
+}
+
+/* Floating Background Circle */
+
+.stat-card::after {
+  content: "";
+
+  position: absolute;
+
+  right: -40px;
+  bottom: -40px;
+
+  width: 120px;
+  height: 120px;
+
+  border-radius: 50%;
+
+  background: rgba(79, 70, 229, 0.04);
+
+  transition: 0.4s ease;
+}
+
+.stat-card:hover::after {
+  transform: scale(1.3);
+}
+
+/* ==========================
+   Individual Card Colors
+========================== */
+
+.stat-card:nth-child(1)::before {
+  background: linear-gradient(90deg, #2563eb, #3b82f6);
+}
+
+.stat-card:nth-child(2)::before {
+  background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.stat-card:nth-child(3)::before {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+}
+
+.stat-card:nth-child(4)::before {
+  background: linear-gradient(90deg, #8b5cf6, #a855f7);
+}
+
+/* Different Icon Colors */
+
+.stat-card:nth-child(1) svg {
+  color: #2563eb;
+}
+
+.stat-card:nth-child(2) svg {
+  color: #10b981;
+}
+
+.stat-card:nth-child(3) svg {
+  color: #f59e0b;
+}
+
+.stat-card:nth-child(4) svg {
+  color: #8b5cf6;
+}
+
+/* Hover Icon Colors */
+
+.stat-card:nth-child(1):hover svg {
+  background: #2563eb4f;
+}
+
+.stat-card:nth-child(2):hover svg {
+  background: #10b98163;
+}
+
+.stat-card:nth-child(3):hover svg {
+  background: #f59e0b40;
+}
+
+.stat-card:nth-child(4):hover svg {
+  background: #8b5cf685;
+}
+
+/* Small Animation */
+
+@keyframes statFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+.stat-card {
+  animation: statFade 0.5s ease;
+}
+
+/* ========= 5. Course Cards ========= */
+
+/* ======================================================
+   COURSE SECTION
+====================================================== */
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+
+  gap: 28px;
+
+  margin-top: 25px;
+}
+
+/* ======================================================
+   COURSE CARD
+====================================================== */
+
+.course-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border-radius: 22px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.07),
+    0 3px 10px rgba(15, 23, 42, 0.04);
+
+  transition: all 0.35s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-8px);
+
+  border-color: rgba(79, 70, 229, 0.15);
+
+  box-shadow: 0 24px 45px rgba(15, 23, 42, 0.12);
+}
+
+/* ======================================================
+   COURSE IMAGE
+====================================================== */
+
+.course-image {
+  width: 100%;
+
+  height: 210px;
+
+  object-fit: cover;
+
+  transition: transform 0.45s ease;
+}
+
+.course-card:hover .course-image {
+  transform: scale(1.06);
+}
+
+/* ======================================================
+   COURSE CONTENT
+====================================================== */
+
+.course-card h3 {
+  margin: 22px 22px 10px;
+
+  font-size: 1.25rem;
+
+  font-weight: 700;
+
+  color: #0f172a;
+
+  line-height: 1.4;
+}
+
+.course-card p {
+  margin: 0 22px;
+
+  color: #64748b;
+
+  font-size: 0.95rem;
+
+  line-height: 1.7;
+
+  flex: 1;
+}
+
+/* ======================================================
+   PROGRESS BAR
+====================================================== */
+
+.progress-bar {
+  width: calc(100% - 44px);
+
+  height: 10px;
+
+  margin: 25px 22px 10px;
+
+  background: #e2e8f0;
+
+  border-radius: 50px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  border-radius: 50px;
+
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+
+  transition: width 0.6s ease;
+}
+
+/* ======================================================
+   PROGRESS TEXT
+====================================================== */
+
+.course-card span {
+  margin: 0 22px;
+
+  color: #2563eb;
+
+  font-size: 0.9rem;
+
+  font-weight: 600;
+}
+
+/* ======================================================
+   COURSE BUTTON
+====================================================== */
+
+.course-card button {
+  margin: 22px;
+
+  margin-top: 20px;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  color: white;
+
+  font-size: 0.95rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
 }
 
 .course-card button:hover {
   transform: translateY(-3px);
+
+  box-shadow: 0 18px 30px rgba(37, 99, 235, 0.28);
 }
 
-.activity-card {
-  background: white;
+.course-card button:active {
+  transform: scale(0.97);
+}
 
-  padding: 20px;
+/* ======================================================
+   OPTIONAL COURSE BADGE
+====================================================== */
 
-  border-radius: 18px;
+.course-badge {
+  position: absolute;
 
+  top: 16px;
+
+  left: 16px;
+
+  padding: 7px 14px;
+
+  border-radius: 50px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: #2563eb;
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+
+  backdrop-filter: blur(8px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ======================================================
+   COURSE FOOTER
+====================================================== */
+
+.course-footer {
   display: flex;
+
+  justify-content: space-between;
+
   align-items: center;
 
-  gap: 15px;
-
-  margin-bottom: 15px;
-
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  margin: 18px 22px 0;
 }
 
-.activity-card svg {
+.course-lessons {
+  color: #64748b;
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
+}
+
+.course-duration {
+  color: #64748b;
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
+}
+
+/* ======================================================
+   CARD ANIMATION
+====================================================== */
+
+@keyframes courseFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+.course-card {
+  animation: courseFade 0.6s ease;
+}
+
+/* ========= 6. Empty Dashboard ========= */
+
+/* ======================================================
+   EMPTY DASHBOARD
+====================================================== */
+
+.empty-dashboard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 70px 40px;
+
+  background: linear-gradient(135deg, #ffffff, #f8fbff);
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 28px;
+
+  box-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+
+  overflow: hidden;
+
+  position: relative;
+}
+
+/* Decorative Background */
+
+.empty-dashboard::before {
+  content: "";
+
+  position: absolute;
+
+  width: 260px;
+  height: 260px;
+
+  border-radius: 50%;
+
+  top: -120px;
+  left: -120px;
+
+  background: rgba(79, 70, 229, 0.06);
+}
+
+.empty-dashboard::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  border-radius: 50%;
+
+  bottom: -70px;
+  right: -70px;
+
+  background: rgba(37, 99, 235, 0.05);
+}
+
+/* ======================================================
+   IMAGE
+====================================================== */
+
+.empty-dashboard img {
+  width: 260px;
+
+  max-width: 100%;
+
+  margin-bottom: 35px;
+
+  z-index: 2;
+
+  animation: floatImage 4s ease-in-out infinite;
+}
+
+/* ======================================================
+   TITLE
+====================================================== */
+
+.empty-dashboard h2 {
+  font-size: 2rem;
+
+  font-weight: 700;
+
+  color: #0f172a;
+
+  margin-bottom: 16px;
+
+  z-index: 2;
+}
+
+/* ======================================================
+   DESCRIPTION
+====================================================== */
+
+.empty-dashboard p {
+  max-width: 520px;
+
+  color: #64748b;
+
+  font-size: 1rem;
+
+  line-height: 1.8;
+
+  margin-bottom: 35px;
+
+  z-index: 2;
+}
+
+/* ======================================================
+   BUTTON
+====================================================== */
+
+.empty-dashboard button {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 10px;
+
+  padding: 15px 34px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  color: #ffffff;
+
+  font-size: 1rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.35s ease;
+
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.25);
+
+  z-index: 2;
+}
+
+.empty-dashboard button:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 22px 40px rgba(37, 99, 235, 0.35);
+}
+
+.empty-dashboard button svg {
+  transition: transform 0.3s ease;
+}
+
+.empty-dashboard button:hover svg {
+  transform: translateX(6px);
+}
+
+/* ======================================================
+   OPTIONAL SMALL TEXT
+====================================================== */
+
+.empty-note {
+  margin-top: 20px;
+
+  color: #94a3b8;
+
+  font-size: 0.9rem;
+}
+
+/* ======================================================
+   FLOAT ANIMATION
+====================================================== */
+
+@keyframes floatImage {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* ========= 7. Recommended Courses ========= */
+
+/* ======================================================
+   RECOMMENDED COURSES
+====================================================== */
+
+.recommended-grid {
+  display: none;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+
+  gap: 28px;
+
+  margin-top: 25px;
+}
+
+/* ======================================================
+   CARD
+====================================================== */
+
+.recommended-card {
+  position: relative;
+
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background: #ffffff;
+
+  border-radius: 22px;
+
+  border: 1px solid #e5e7eb;
+
+  box-shadow:
+    0 12px 28px rgba(15, 23, 42, 0.06),
+    0 4px 12px rgba(15, 23, 42, 0.04);
+
+  transition: all 0.35s ease;
+}
+
+.recommended-card:hover {
+  transform: translateY(-8px);
+
+  box-shadow: 0 22px 45px rgba(15, 23, 42, 0.12);
+
+  border-color: rgba(79, 70, 229, 0.18);
+}
+
+/* ======================================================
+   THUMBNAIL
+====================================================== */
+
+.recommended-card img {
+  width: 100%;
+
+  height: 190px;
+
+  object-fit: cover;
+
+  transition: transform 0.45s ease;
+}
+
+.recommended-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ======================================================
+   CONTENT
+====================================================== */
+
+.recommended-content {
+  padding: 22px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  flex: 1;
+}
+
+.recommended-content h3 {
+  color: #0f172a;
+
+  font-size: 1.2rem;
+
+  font-weight: 700;
+
+  margin-bottom: 10px;
+}
+
+.recommended-content p {
+  color: #64748b;
+
+  line-height: 1.7;
+
+  margin-bottom: 18px;
+
+  flex: 1;
+}
+
+/* ======================================================
+   COURSE DETAILS
+====================================================== */
+
+.recommended-info {
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  margin-bottom: 18px;
+
+  color: #64748b;
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
+}
+
+/* ======================================================
+   RATING
+====================================================== */
+
+.course-rating {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+
+  color: #f59e0b;
+
+  font-weight: 600;
+}
+
+/* ======================================================
+   PRICE
+====================================================== */
+
+.course-price {
+  font-size: 1.1rem;
+
+  font-weight: 700;
+
   color: #2563eb;
 }
 
-.activity-card h4 {
+/* ======================================================
+   BUTTON
+====================================================== */
+
+.recommended-card button {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  color: white;
+
+  font-size: 0.95rem;
+
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.recommended-card button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 12px 24px rgba(37, 99, 235, 0.28);
+}
+
+/* ======================================================
+   BADGE
+====================================================== */
+
+.course-badge {
+  position: absolute;
+
+  top: 16px;
+
+  left: 16px;
+
+  padding: 7px 14px;
+
+  border-radius: 30px;
+
+  background: #f59e0b;
+
+  color: white;
+
+  font-size: 0.8rem;
+
+  font-weight: 700;
+
+  box-shadow: 0 8px 18px rgba(245, 158, 11, 0.28);
+}
+
+/* ======================================================
+   HOVER SHINE
+====================================================== */
+
+.recommended-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -100%;
+
+  width: 100%;
+
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+
+  transition: 0.8s;
+}
+
+.recommended-card:hover::before {
+  left: 100%;
+}
+
+/* ========= 8. Activity Section ========= */
+
+/* ======================================================
+   RECENT ACTIVITY
+====================================================== */
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ======================================================
+   ACTIVITY CARD
+====================================================== */
+
+.activity-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 20px 24px;
+
+  background: #ffffff;
+
+  border-radius: 20px;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+
+  transition: all 0.35s ease;
+
+  position: relative;
+
+  overflow: hidden;
+}
+
+/* Left Accent */
+
+.activity-card::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+
+  width: 5px;
+  height: 100%;
+
+  background: linear-gradient(180deg, #2563eb, #4f46e5);
+}
+
+/* Hover */
+
+.activity-card:hover {
+  transform: translateX(8px);
+
+  border-color: rgba(79, 70, 229, 0.15);
+
+  box-shadow: 0 18px 35px rgba(15, 23, 42, 0.1);
+}
+
+/* ======================================================
+   ICON
+====================================================== */
+
+.activity-icon {
+  min-width: 55px;
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  color: white;
+
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.25);
+}
+
+.activity-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* ======================================================
+   CONTENT
+====================================================== */
+
+.activity-content {
+  flex: 1;
+}
+
+.activity-content h4 {
+  font-size: 1rem;
+
+  font-weight: 700;
+
   color: #0f172a;
+
+  margin-bottom: 6px;
 }
 
-.activity-card p {
+.activity-content p {
   color: #64748b;
+
+  line-height: 1.6;
+
+  font-size: 0.92rem;
 }
 
-@media (max-width: 768px) {
+/* ======================================================
+   TIME
+====================================================== */
+
+.activity-time {
+  color: #94a3b8;
+
+  font-size: 0.85rem;
+
+  font-weight: 600;
+
+  white-space: nowrap;
+}
+
+/* ======================================================
+   NO ACTIVITY
+====================================================== */
+
+.no-activity {
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 60px 25px;
+
+  background: #ffffff;
+
+  border: 2px dashed #dbeafe;
+
+  border-radius: 20px;
+}
+
+.no-activity img {
+  width: 180px;
+
+  margin-bottom: 25px;
+}
+
+.no-activity h3 {
+  color: #0f172a;
+
+  margin-bottom: 12px;
+
+  font-size: 1.4rem;
+}
+
+.no-activity p {
+  color: #64748b;
+
+  max-width: 450px;
+
+  line-height: 1.7;
+}
+
+/* ======================================================
+   FADE ANIMATION
+====================================================== */
+
+@keyframes activityFade {
+  from {
+    opacity: 0;
+
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+}
+
+.activity-card {
+  animation: activityFade 0.45s ease;
+}
+
+/* ========= 9. Buttons ========= */
+
+/* ======================================================
+   BUTTONS
+====================================================== */
+
+/* Base Button */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  padding: 14px 24px;
+
+  border: none;
+  border-radius: 14px;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+
+  text-decoration: none;
+
+  white-space: nowrap;
+
+  user-select: none;
+}
+
+/* Hover */
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Active */
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+/* Disabled */
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ======================================================
+   PRIMARY
+====================================================== */
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+  color: white;
+
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.25);
+}
+
+.btn-primary:hover {
+  box-shadow: 0 20px 35px rgba(37, 99, 235, 0.35);
+}
+
+/* ======================================================
+   SUCCESS
+====================================================== */
+
+.btn-success {
+  background: linear-gradient(135deg, #10b981, #059669);
+
+  color: white;
+
+  box-shadow: 0 12px 25px rgba(16, 185, 129, 0.25);
+}
+
+.btn-success:hover {
+  box-shadow: 0 20px 35px rgba(16, 185, 129, 0.35);
+}
+
+/* ======================================================
+   DANGER
+====================================================== */
+
+.btn-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+
+  color: white;
+
+  box-shadow: 0 12px 25px rgba(239, 68, 68, 0.25);
+}
+
+.btn-danger:hover {
+  box-shadow: 0 20px 35px rgba(239, 68, 68, 0.35);
+}
+
+/* ======================================================
+   OUTLINE
+====================================================== */
+
+.btn-outline {
+  background: white;
+
+  color: #2563eb;
+
+  border: 2px solid #2563eb;
+}
+
+.btn-outline:hover {
+  background: #2563eb;
+
+  color: white;
+}
+
+/* ======================================================
+   LIGHT
+====================================================== */
+
+.btn-light {
+  background: #f8fafc;
+
+  color: #334155;
+
+  border: 1px solid #e2e8f0;
+}
+
+.btn-light:hover {
+  background: white;
+
+  box-shadow: 0 12px 25px rgba(15, 23, 42, 0.08);
+}
+
+/* ======================================================
+   SMALL
+====================================================== */
+
+.btn-sm {
+  padding: 10px 18px;
+
+  font-size: 0.85rem;
+}
+
+/* ======================================================
+   LARGE
+====================================================== */
+
+.btn-lg {
+  padding: 16px 34px;
+
+  font-size: 1rem;
+}
+
+/* ======================================================
+   FULL WIDTH
+====================================================== */
+
+.btn-block {
+  width: 100%;
+}
+
+/* ======================================================
+   ICON
+====================================================== */
+
+.btn svg {
+  transition: transform 0.3s ease;
+}
+
+.btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* ========= 10. Loading ========= */
+
+/* ======================================================
+   LOADING SKELETON
+====================================================== */
+
+.loading-header {
+  width: 100%;
+
+  height: 140px;
+
+  border-radius: 24px;
+
+  margin-bottom: 40px;
+
+  background: #e2e8f0;
+}
+
+.loading-stats {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+
+  gap: 24px;
+
+  margin-bottom: 45px;
+}
+
+.loading-card {
+  height: 170px;
+
+  border-radius: 22px;
+
+  background: #e2e8f0;
+}
+
+.loading-course {
+  width: 100%;
+
+  height: 250px;
+
+  border-radius: 24px;
+
+  margin-bottom: 28px;
+
+  background: #e2e8f0;
+}
+
+/* ======================================================
+   SHIMMER EFFECT
+====================================================== */
+
+.shimmer {
+  position: relative;
+
+  overflow: hidden;
+}
+
+.shimmer::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+
+  left: -150px;
+
+  width: 150px;
+
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.7),
+    transparent
+  );
+
+  animation: shimmer 1.4s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    left: calc(100% + 150px);
+  }
+}
+
+/* ========= 11. Animations ========= */
+
+/* ======================================================
+   ANIMATIONS
+====================================================== */
+
+/* Smooth Fade Up */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Scale */
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Floating */
+
+@keyframes floating {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-6px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Pulse */
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Rotate */
+
+@keyframes rotateIcon {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Shine */
+
+@keyframes shine {
+  100% {
+    left: 120%;
+  }
+}
+
+/* Progress Animation */
+
+@keyframes progressLoad {
+  from {
+    width: 0;
+  }
+}
+
+/* ========= 12. Responsive ========= */
+
+/* ======================================================
+   RESPONSIVE DESIGN
+====================================================== */
+
+/* ---------- Large Laptop (1200px) ---------- */
+
+@media (max-width: 1200px) {
+  .dashboard {
+    padding: 40px 5%;
+  }
+}
+
+/* ---------- Laptop (992px) ---------- */
+
+@media (max-width: 992px) {
+  .dashboard {
+    padding: 35px 4%;
+  }
+
   .dashboard-header {
     flex-direction: column;
-    gap: 20px;
 
+    align-items: flex-start;
+
+    gap: 25px;
+  }
+
+  .header-right {
+    width: 100%;
+
+    justify-content: space-between;
+  }
+
+  .continue-banner {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 20px;
+  }
+
+  .continue-banner button {
+    width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .course-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .recommended-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .section-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 28px;
+    gap: 20px;
+    flex-direction: column;
+  }
+}
+
+/* ---------- Tablet (768px) ---------- */
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 25px 20px;
+  }
+
+  .dashboard-header {
     text-align: center;
+
+    align-items: center;
+  }
+
+  .dashboard-header h1 {
+    font-size: 2rem;
+  }
+
+  .dashboard-header p {
+    font-size: 0.95rem;
+  }
+
+  .header-right {
+    justify-content: center !important;
+
+    flex-wrap: wrap;
+
+    gap: 15px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .recommended-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .continue-banner {
+    padding: 25px;
+  }
+
+  .continue-banner h2 {
+    font-size: 1.5rem;
+  }
+
+  .course-card {
+    padding: 22px;
+  }
+
+  .recommended-card {
+    padding: 0;
+  }
+
+  .activity-card {
+    gap: 15px;
+
+    padding: 18px;
+  }
+
+  .activity-time {
+    display: none;
+  }
+}
+
+/* ---------- Mobile (576px) ---------- */
+
+@media (max-width: 576px) {
+  .dashboard {
+    padding: 20px 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.7rem;
+
+    line-height: 1.3;
+  }
+
+  .dashboard-header p {
+    font-size: 0.9rem;
+  }
+
+  .profile-box {
+    width: 45px;
+
+    height: 45px;
+  }
+
+  .logout-btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+
+  .continue-banner {
+    padding: 20px;
+
+    border-radius: 18px;
+  }
+
+  .continue-banner h2 {
+    font-size: 1.3rem;
+  }
+
+  .continue-banner p {
+    font-size: 0.9rem;
+  }
+
+  .stat-card {
+    padding: 22px;
+  }
+
+  .stat-card h2 {
+    font-size: 1.8rem;
+  }
+
+  .course-image {
+    height: 180px;
+  }
+
+  .course-card h3 {
+    font-size: 1.1rem;
+  }
+
+  .recommended-card img {
+    height: 180px;
+  }
+
+  .recommended-content {
+    padding: 18px;
+  }
+
+  .recommended-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .recommended-info {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 8px;
+  }
+
+  .activity-card {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    text-align: left;
+  }
+
+  .activity-icon {
+    width: 50px;
+
+    height: 50px;
+  }
+
+  .empty-dashboard {
+    padding: 40px 20px;
+  }
+
+  .empty-dashboard img {
+    width: 170px;
+  }
+
+  .btn {
+    width: 100%;
+
+    justify-content: center;
+  }
+}
+
+/* ---------- Small Mobile (400px) ---------- */
+
+@media (max-width: 400px) {
+  .dashboard {
+    padding: 15px;
+  }
+
+  .dashboard-header h1 {
+    font-size: 1.45rem;
+  }
+
+  .continue-banner {
+    padding: 18px;
+  }
+
+  .stat-card {
+    padding: 18px;
+  }
+
+  .course-card {
+    padding: 18px;
+  }
+
+  .recommended-content {
+    padding: 16px;
+  }
+
+  .activity-card {
+    padding: 16px;
   }
 }

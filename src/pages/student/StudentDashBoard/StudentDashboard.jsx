@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getProfile } from "../../../services/userService";
+import { useNavigate } from "react-router-dom";
 import "./StudentDashboard.css";
 
 import {
@@ -10,9 +11,10 @@ import {
   PlayCircle,
   User,
   LogOut,
+  ShoppingCart,
+  ArrowRight,
+  Sparkles,
 } from "lucide-react";
-
-import { useNavigate } from "react-router-dom";
 
 function StudentDashboard() {
   const navigate = useNavigate();
@@ -20,50 +22,92 @@ function StudentDashboard() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // ================= FETCH PROFILE =================
   useEffect(() => {
-    const fetchProfile = async () => {
-      try {
-        const profile = await getProfile();
-          console.log("PROFILE DATA:", profile);
-        setUser(profile);
-      } catch (error) {
-        console.error("Profile error:", error);
-      } finally {
-        setLoading(false);
-      }
-    };
-
     fetchProfile();
   }, []);
 
-  // ================= LOGOUT =================
+  const fetchProfile = async () => {
+    try {
+      const profile = await getProfile();
+      setUser(profile);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const logout = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     navigate("/login");
   };
 
-  // ================= LOADING =================
+  const hour = new Date().getHours();
+
+  const greeting =
+    hour < 12
+      ? "Good Morning ☀️"
+      : hour < 17
+        ? "Good Afternoon 🌤️"
+        : "Good Evening 🌙";
+
+  const stats = [
+    {
+      title: "Enrolled Courses",
+      value: user?.enrolledCourses || 0,
+      icon: <BookOpen size={32} />,
+    },
+    {
+      title: "Learning Hours",
+      value: `${user?.learningHours || 0} hrs`,
+      icon: <Clock3 size={32} />,
+    },
+    {
+      title: "Certificates",
+      value: user?.certificates || 0,
+      icon: <Trophy size={32} />,
+    },
+    {
+      title: "Overall Progress",
+      value: `${user?.progress || 0}%`,
+      icon: <GraduationCap size={32} />,
+    },
+  ];
+
   if (loading) {
     return (
       <div className="dashboard">
-        <h2>Loading Dashboard...</h2>
+        <div className="loading-header shimmer"></div>
+
+        <div className="loading-stats">
+          <div className="loading-card shimmer"></div>
+          <div className="loading-card shimmer"></div>
+          <div className="loading-card shimmer"></div>
+          <div className="loading-card shimmer"></div>
+        </div>
+
+        <div className="loading-course shimmer"></div>
+
+        <div className="loading-course shimmer"></div>
       </div>
     );
   }
 
   return (
     <div className="dashboard">
-      {/* HEADER */}
+      {/* Header */}
+
       <div className="dashboard-header">
         <div>
-          <h1>Welcome Back, {user?.name || "Student"} 👋</h1>
-          <p>Continue your learning journey and track your progress.</p>
+          <h1>
+            {greeting}, {user?.name || "Student"} 👋
+          </h1>
+
+          <p>Keep learning consistently and achieve your goals every day.</p>
         </div>
 
         <div className="header-right">
-          {/* PROFILE IMAGE */}
           <div
             className="profile-box"
             onClick={() => navigate("/dashboard/profile")}
@@ -82,73 +126,211 @@ function StudentDashboard() {
         </div>
       </div>
 
-      {/* STATS (FROM BACKEND) */}
+      {/* Continue Learning */}
+
+      {user?.courses?.length > 0 && (
+        <div className="continue-banner">
+          <div>
+            <span className="continue-tag">
+              <Sparkles size={18} />
+              Continue Learning
+            </span>
+
+            <h2>{user.courses[0].title}</h2>
+
+            <p>{user.courses[0].progress}% Completed</p>
+          </div>
+
+          <button onClick={() => navigate(`/learning/${user.courses[0]._id}`)}>
+            Resume
+            <ArrowRight size={18} />
+          </button>
+        </div>
+      )}
+
+      {/* Stats */}
+
       <div className="stats-grid">
-        <div className="stat-card">
-          <BookOpen size={32} />
-          <h2>{user?.enrolledCourses || 0}</h2>
-          <p>Enrolled Courses</p>
-        </div>
-
-        <div className="stat-card">
-          <Clock3 size={32} />
-          <h2>{user?.learningHours || 0} hrs</h2>
-          <p>Learning Time</p>
-        </div>
-
-        <div className="stat-card">
-          <Trophy size={32} />
-          <h2>{user?.certificates || 0}</h2>
-          <p>Certificates</p>
-        </div>
-
-        <div className="stat-card">
-          <GraduationCap size={32} />
-          <h2>{user?.progress || 0}%</h2>
-          <p>Course Progress</p>
-        </div>
+        {stats.map((item, index) => (
+          <div className="stat-card" key={index}>
+            {item.icon}
+            <h2>{item.value}</h2>
+            <p>{item.title}</p>
+          </div>
+        ))}
       </div>
 
-      {/* COURSES */}
+      {/* Courses */}
+
       <div className="dashboard-section">
         <h2>My Courses</h2>
 
-        <div className="course-grid">
-          {(user?.courses || []).map((course, index) => (
-            <div className="course-card" key={index}>
-              <h3>{course.title}</h3>
-              <p>{course.description}</p>
-
-              <div className="progress-bar">
-                <div
-                  className="progress-fill"
-                  style={{ width: `${course.progress}%` }}
+        {user?.courses?.length > 0 ? (
+          <div className="course-grid">
+            {user.courses.map((course) => (
+              <div className="course-card" key={course._id}>
+                <img
+                  src={course.thumbnail || "/images/course-placeholder.jpg"}
+                  alt={course.title}
+                  className="course-image"
                 />
+
+                {/* <h3>{course.title}</h3>
+
+                <p>{course.description}</p> */}
+
+                {/* here for students card  */}
+
+                <div className="course-badge">Active</div>
+
+                <img
+                  src={course.thumbnail || "/images/course-placeholder.jpg"}
+                  alt={course.title}
+                  className="course-image"
+                />
+
+                <h3>{course.title}</h3>
+
+                <p>{course.description}</p>
+
+                <div className="course-footer">
+                  <span className="course-lessons">
+                    📚 {course.totalLectures || 0} Lessons
+                  </span>
+
+                  <span className="course-duration">
+                    ⏱ {course.duration || "0 hrs"}
+                  </span>
+                </div>
+
+                <div className="progress-bar">
+                  <div
+                    className="progress-fill"
+                    style={{ width: `${course.progress || 0}%` }}
+                  />
+                </div>
+
+                <span>{course.progress || 0}% Completed</span>
+
+                <button onClick={() => navigate(`/learning/${course._id}`)}>
+                  Continue Learning
+                </button>
+
+                {/* here students card end  */}
+
+                <div className="progress-bar">
+                  <div
+                    className="progress-fill"
+                    style={{
+                      width: `${course.progress || 0}%`,
+                    }}
+                  />
+                </div>
+
+                <span>{course.progress || 0}% Completed</span>
+
+                <button onClick={() => navigate(`/learning/${course._id}`)}>
+                  Continue Learning
+                </button>
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div className="empty-dashboard">
+            <img src="/Online learning-amico.svg" alt="Start Learning" />
+
+            <h2>Welcome to MyAcademy 🎉</h2>
+
+            <p>
+              Your learning journey starts here. Explore our expert-designed
+              courses, purchase your favorite one, and begin building your
+              future today.
+            </p>
+
+            <button
+              className="btn btn-primary btn-block"
+              onClick={() => navigate("/courses")}
+            >
+              <ShoppingCart size={20} />
+              Explore Courses
+            </button>
+
+            {/* <span className="empty-note">
+              1000+ Students are already learning with MyAcademy
+            </span> */}
+          </div>
+        )}
+      </div>
+
+      {/* Recommended */}
+
+      <div className="dashboard-section">
+        <div className="section-header">
+          <h2>Recommended Courses</h2>
+
+          <button className="view-all-btn" onClick={() => navigate("/courses")}>
+            View All
+          </button>
+        </div>
+
+        <div className="recommended-grid">
+          <div className="recommended-card">
+            <span className="course-badge">Bestseller</span>
+
+            <img src="/images/courses/chemistry.jpg" alt="Chemistry" />
+
+            <div className="recommended-content">
+              <h3>Class 12 Chemistry</h3>
+
+              <p>
+                Complete Electrochemistry course with animations, notes, quizzes
+                and PYQs.
+              </p>
+
+              <div className="recommended-info">
+                <span className="course-rating">⭐ 4.9</span>
+
+                <span className="course-price">₹999</span>
               </div>
 
-              <span>{course.progress}% Completed</span>
-
-              <button onClick={() => navigate(`/learning/${course._id}`)}>
-                Continue Learning
+              <button onClick={() => navigate("/courses")}>
+                Explore Course
               </button>
             </div>
-          ))}
+          </div>
         </div>
       </div>
 
-      {/* RECENT ACTIVITY */}
+      {/* Activity */}
+
       <div className="dashboard-section">
         <h2>Recent Activity</h2>
 
-        {(user?.activities || []).map((act, i) => (
-          <div className="activity-card" key={i}>
-            <PlayCircle size={22} />
-            <div>
-              <h4>{act.title}</h4>
-              <p>{act.time}</p>
+        {user?.activities?.length > 0 ? (
+          user.activities.map((activity, index) => (
+            <div className="activity-list">
+              {user.activities.map((activity) => (
+                <div className="activity-card" key={activity._id}>
+                  <div className="activity-icon">
+                    <PlayCircle size={22} />
+                  </div>
+
+                  <div className="activity-content">
+                    <h4>{activity.title}</h4>
+
+                    <p>{activity.description}</p>
+                  </div>
+
+                  <span className="activity-time">{activity.time}</span>
+                </div>
+              ))}
             </div>
+          ))
+        ) : (
+          <div className="no-activity">
+            <p>No recent activity found.</p>
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
@@ -157,8 +339,9 @@ function StudentDashboard() {
 export default StudentDashboard;
 
 // import { useState, useEffect } from "react";
-// import { getProfile } from "../../services/userService";
+// import { getProfile } from "../../../services/userService";
 // import "./StudentDashboard.css";
+
 // import {
 //   GraduationCap,
 //   BookOpen,
@@ -173,63 +356,60 @@ export default StudentDashboard;
 
 // function StudentDashboard() {
 //   const navigate = useNavigate();
-//   const [user, setUser] = useState(null);
 
+//   const [user, setUser] = useState(null);
+//   const [loading, setLoading] = useState(true);
+
+//   // ================= FETCH PROFILE =================
 //   useEffect(() => {
 //     const fetchProfile = async () => {
 //       try {
 //         const profile = await getProfile();
+//           console.log("PROFILE DATA:", profile);
 //         setUser(profile);
 //       } catch (error) {
-//         console.error(
-//           "Error fetching profile:",
-//           error.response?.data || error.message,
-//         );
+//         console.error("Profile error:", error);
+//       } finally {
+//         setLoading(false);
 //       }
 //     };
 
 //     fetchProfile();
 //   }, []);
 
-//   console.log("Logged in user:", user);
-
+//   // ================= LOGOUT =================
 //   const logout = () => {
 //     localStorage.removeItem("token");
 //     localStorage.removeItem("user");
 //     navigate("/login");
 //   };
 
+//   // ================= LOADING =================
+//   if (loading) {
+//     return (
+//       <div className="dashboard">
+//         <h2>Loading Dashboard...</h2>
+//       </div>
+//     );
+//   }
+
 //   return (
 //     <div className="dashboard">
-//       {/* Header */}
+//       {/* HEADER */}
 //       <div className="dashboard-header">
 //         <div>
 //           <h1>Welcome Back, {user?.name || "Student"} 👋</h1>
-
 //           <p>Continue your learning journey and track your progress.</p>
 //         </div>
 
 //         <div className="header-right">
+//           {/* PROFILE IMAGE */}
 //           <div
 //             className="profile-box"
 //             onClick={() => navigate("/dashboard/profile")}
 //           >
 //             {user?.photo ? (
-//               <img
-//                 src={
-//                   user.photo ||
-//                   `https://ui-avatars.com/api/?name=${encodeURIComponent(
-//                     user?.name || "Student",
-//                   )}`
-//                 }
-//                 alt={user?.name}
-//                 className="profile-image"
-//                 onLoad={() => console.log("Image Loaded")}
-//                 onError={(e) => {
-//                   console.log("Image Failed");
-//                   e.target.src = "/default-avatar.png";
-//                 }}
-//               />
+//               <img src={user.photo} alt="profile" className="profile-image" />
 //             ) : (
 //               <User size={26} />
 //             )}
@@ -242,101 +422,73 @@ export default StudentDashboard;
 //         </div>
 //       </div>
 
-//       {/* Stats */}
+//       {/* STATS (FROM BACKEND) */}
 //       <div className="stats-grid">
 //         <div className="stat-card">
 //           <BookOpen size={32} />
-//           <h2>4</h2>
+//           <h2>{user?.enrolledCourses || 0}</h2>
 //           <p>Enrolled Courses</p>
 //         </div>
 
 //         <div className="stat-card">
 //           <Clock3 size={32} />
-//           <h2>58 hrs</h2>
+//           <h2>{user?.learningHours || 0} hrs</h2>
 //           <p>Learning Time</p>
 //         </div>
 
 //         <div className="stat-card">
 //           <Trophy size={32} />
-//           <h2>3</h2>
+//           <h2>{user?.certificates || 0}</h2>
 //           <p>Certificates</p>
 //         </div>
 
 //         <div className="stat-card">
 //           <GraduationCap size={32} />
-//           <h2>82%</h2>
+//           <h2>{user?.progress || 0}%</h2>
 //           <p>Course Progress</p>
 //         </div>
 //       </div>
 
-//       {/* Courses */}
+//       {/* COURSES */}
 //       <div className="dashboard-section">
 //         <h2>My Courses</h2>
 
 //         <div className="course-grid">
-//           <div className="course-card">
-//             <h3>Class 11 Mathematics</h3>
+//           {(user?.courses || []).map((course, index) => (
+//             <div className="course-card" key={index}>
+//               <h3>{course.title}</h3>
+//               <p>{course.description}</p>
 
-//             <p>Complete Algebra, Trigonometry, Calculus & Statistics.</p>
+//               <div className="progress-bar">
+//                 <div
+//                   className="progress-fill"
+//                   style={{ width: `${course.progress}%` }}
+//                 />
+//               </div>
 
-//             <div className="progress-bar">
-//               <div
-//                 className="progress-fill"
-//                 style={{
-//                   width: "70%",
-//                 }}
-//               ></div>
+//               <span>{course.progress}% Completed</span>
+
+//               <button onClick={() => navigate(`/learning/${course._id}`)}>
+//                 Continue Learning
+//               </button>
 //             </div>
-
-//             <span>70% Completed</span>
-
-//             <button>Continue Learning</button>
-//           </div>
-
-//           <div className="course-card">
-//             <h3>React Development</h3>
-
-//             <p>Build modern frontend applications using React.</p>
-
-//             <div className="progress-bar">
-//               <div
-//                 className="progress-fill"
-//                 style={{
-//                   width: "45%",
-//                 }}
-//               ></div>
-//             </div>
-
-//             <span>45% Completed</span>
-
-//             <button>Continue Learning</button>
-//           </div>
+//           ))}
 //         </div>
 //       </div>
 
-//       {/* Recent Activity */}
+//       {/* RECENT ACTIVITY */}
 //       <div className="dashboard-section">
 //         <h2>Recent Activity</h2>
 
-//         <div className="activity-card">
-//           <PlayCircle size={22} />
-
-//           <div>
-//             <h4>React Hooks Lecture Completed</h4>
-
-//             <p>Today • 2 Hours Ago</p>
+//         {(user?.activities || []).map((act, i) => (
+//           <div className="activity-card" key={i}>
+//             <PlayCircle size={22} />
+//             <div>
+//               <h4>{act.title}</h4>
+//               <p>{act.time}</p>
+//             </div>
 //           </div>
-//         </div>
-
-//         <div className="activity-card">
-//           <PlayCircle size={22} />
-
-//           <div>
-//             <h4>Assignment Submitted</h4>
-
-//             <p>Yesterday</p>
-//           </div>
-//         </div>
+//         ))}
 //       </div>
 //     </div>
 //   );
