@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { getMe } from "@/services/userApi";
+import { getMe } from "../../../services/userApi";
 
 function GoogleSuccess() {
   const navigate = useNavigate();
