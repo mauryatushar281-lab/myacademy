@@ -126,8 +126,7 @@ function Navbar() {
           {user && (
             <div className="notification-box">
               <Bell size={22} />
-
-              <span className="notification-count">3</span>
+              {/* <span className="notification-count">3</span> */}
             </div>
           )}
 
