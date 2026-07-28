@@ -48,7 +48,7 @@ function StudentDashboard() {
     navigate("/login");
   };
 
-  const hour = new Date().getHours()+20;
+  const hour = new Date().getHours();
 
   let greeting;
   let greetingImage;
