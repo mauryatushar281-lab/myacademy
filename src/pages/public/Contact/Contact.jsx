@@ -274,24 +274,6 @@ errors.message &&
 
       {/* Social */}
 
-      {/* <section className="social-section">
-        <h2>Connect With Us</h2>
-
-        <div className="social-links">
-          <a href="#" target="_blank" rel="noreferrer">
-            YouTube
-          </a>
-          <a href="#" target="_blank" rel="noreferrer">
-            LinkedIn
-          </a>
-          <a href="#" target="_blank" rel="noreferrer">
-            GitHub
-          </a>
-          <a href="#" target="_blank" rel="noreferrer">
-            Instagram
-          </a>
-        </div>
-      </section> */}
 
       <section className="social-section">
         <h2>Connect With Us</h2>
@@ -333,41 +315,3 @@ errors.message &&
 }
 
 export default Contact;
-
-{
-  /* <form className="contact-form" onSubmit={handleSubmit}>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={form.name}
-                onChange={handleChange}
-              />
-
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={form.email}
-                onChange={handleChange}
-              />
-
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={form.subject}
-                onChange={handleChange}
-              />
-
-              <textarea
-                name="message"
-                rows="6"
-                placeholder="Write Your Message..."
-                value={form.message}
-                onChange={handleChange}
-              />
-
-              <button type="submit">Send Message</button>
-            </form> */
-}
