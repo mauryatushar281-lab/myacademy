@@ -297,7 +297,7 @@ errors.message &&
         <h2>Connect With Us</h2>
 
         <div className="social-links">
-          <a href="#" target="_blank" rel="noreferrer">
+          <a href="https://youtube.com/@my-academy-b8l?si=8Sk4r3VJoks4cZzf" target="_blank" rel="noreferrer">
             <FaYoutube />
             <span>YouTube</span>
           </a>
@@ -312,7 +312,7 @@ errors.message &&
             <span>GitHub</span>
           </a>
 
-          <a href="#" target="_blank" rel="noreferrer">
+          <a href="https://www.instagram.com/myacademy_1.0" target="_blank" rel="noreferrer">
             <FaInstagram />
             <span>Instagram</span>
           </a>
