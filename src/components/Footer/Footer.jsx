@@ -66,11 +66,11 @@ function Footer() {
               <FaFacebookF />
             </a>
 
-            <a href="#">
+            <a href="https://www.instagram.com/myacademy_1.0">
               <FaInstagram />
             </a>
 
-            <a href="#">
+            <a href="https://youtube.com/@my-academy-b8l?si=8Sk4r3VJoks4cZzf">
               <FaYoutube />
             </a>
 
