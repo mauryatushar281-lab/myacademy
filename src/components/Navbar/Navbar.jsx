@@ -20,7 +20,6 @@ function Navbar() {
     const loadUser = () => {
       const data = localStorage.getItem("user");
       JSON.parse(localStorage.getItem("user"));
-      console.log("User data from localStorage:", data);
 
       setUser(data ? JSON.parse(data) : null);
     };

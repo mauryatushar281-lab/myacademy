@@ -30,7 +30,7 @@ const AdminDashboard = () => {
     try {
       const { data } = await API.get("/admin/dashboard");
 
-      console.log("Admin Dashboard:", data);
+
 
       setDashboard({
         students: data.students || 0,

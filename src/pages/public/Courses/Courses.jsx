@@ -22,7 +22,6 @@ function Courses() {
     try {
       const data = await getCourses();
 
-      console.log("Courses:", data);
 
       setCourses(data);
     } catch (error) {

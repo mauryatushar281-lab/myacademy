@@ -2,7 +2,6 @@
 import API from "./api";
 
 export const enrollCourse = async (courseId) => {
-    console.log("Course ID:", courseId);
     const res =
         await API.post(
             "/enrollment/enroll",

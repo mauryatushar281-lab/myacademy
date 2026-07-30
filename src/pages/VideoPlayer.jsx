@@ -47,7 +47,6 @@ export default function VideoPlayer({ lecture, courseId }) {
           completed: duration > 0 && watchedTime >= duration * 0.9,
         });
 
-        console.log("Progress Saved:", watchedTime);
       } catch (err) {
         console.error("Save Progress Error:", err);
       }
@@ -68,7 +67,7 @@ export default function VideoPlayer({ lecture, courseId }) {
 
       localStorage.removeItem(`lecture-${lecture._id}`);
 
-      console.log("Lecture Completed");
+
     } catch (err) {
       console.error(err);
     }

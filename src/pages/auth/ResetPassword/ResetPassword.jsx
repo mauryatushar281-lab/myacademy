@@ -31,7 +31,6 @@ function ResetPassword() {
         token,
         password,
       });
-      console.log("RESET TOKEN:", res.token);
 
       setMessage(res.data.message || "Password changed successfully");
 
