@@ -243,7 +243,6 @@
   }
 }
 
-
 /* Glow Animation */
 
 .why-icon {
@@ -262,7 +261,7 @@
   background: linear-gradient(
     135deg,
     transparent,
-    rgba(255,255,255,0.4),
+    rgba(255, 255, 255, 0.4),
     transparent
   );
 
@@ -391,4 +390,130 @@
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 
   gap: 30px;
+}
+
+/* no course  */
+.no-courses {
+  width: 100%;
+  min-height: 520px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 3rem 2rem;
+  margin: 2rem auto;
+
+  text-align: center;
+
+  background: linear-gradient(135deg, #f8fbff 0%, #eef6ff 100%);
+  border: 1px solid rgba(59, 130, 246, 0.08);
+  border-radius: 24px;
+
+  box-shadow:
+    0 12px 30px rgba(15, 23, 42, 0.06),
+    0 4px 10px rgba(15, 23, 42, 0.04);
+
+  transition: all 0.35s ease;
+}
+
+.no-courses:hover {
+  transform: translateY(-6px);
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.1),
+    0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.no-courses img {
+  width: 340px;
+  max-width: 100%;
+  margin-bottom: 2rem;
+
+  transition: transform 0.4s ease;
+}
+
+.no-courses:hover img {
+  transform: scale(1.04);
+}
+
+.no-courses h3 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #1e293b;
+
+  margin-bottom: 1rem;
+
+  letter-spacing: -0.5px;
+}
+
+.no-courses p {
+  max-width: 560px;
+
+  font-size: 1rem;
+  line-height: 1.8;
+
+  color: #64748b;
+
+  margin-bottom: 2rem;
+}
+
+.no-courses .explore-btn {
+  padding: 0.9rem 2rem;
+
+  border: none;
+  border-radius: 50px;
+
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: #fff;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.25);
+
+  transition: all 0.3s ease;
+}
+
+.no-courses .explore-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px rgba(37, 99, 235, 0.35);
+}
+
+.no-courses .explore-btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 768px) {
+  .no-courses {
+    min-height: 420px;
+    padding: 2rem 1.5rem;
+  }
+
+  .no-courses img {
+    width: 240px;
+  }
+
+  .no-courses h3 {
+    font-size: 1.6rem;
+  }
+
+  .no-courses p {
+    font-size: 0.95rem;
+  }
+}
+
+.coming-soon-badge {
+  padding: 0.45rem 1rem;
+  margin-bottom: 1.5rem;
+
+  border-radius: 999px;
+
+  background: rgba(37, 99, 235, 0.1);
+  color: #2563eb;
+
+  font-size: 0.85rem;
+  font-weight: 600;
 }

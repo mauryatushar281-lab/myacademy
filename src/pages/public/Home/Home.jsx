@@ -6,7 +6,7 @@ import Footer from "@/components/Footer/Footer";
 import Hero from "@/components/Hero/Hero";
 import CourseCard from "@/components/CourseCard/CourseCard";
 import { GraduationCap, BadgeCheck, MonitorPlay } from "lucide-react";
-
+import NoCourses from "/At the office.gif";
 import "./Home.css";
 
 function Home() {
@@ -37,7 +37,7 @@ function Home() {
       <Hero />
 
       {/* Featured Courses */}
-      <section className="featured-section">
+      {/* <section className="featured-section">
         <h2 className="section-title">Featured Courses</h2>
 
         <div className="course-grid">
@@ -47,6 +47,31 @@ function Home() {
             courses.map((course) => (
               <CourseCard key={course._id} course={course} />
             ))
+          )}
+        </div>
+      </section> */}
+      <section className="featured-section">
+        <h2 className="section-title">Featured Courses</h2>
+
+        <div className="course-grid">
+          {loading ? (
+            <h2>Loading courses...</h2>
+          ) : courses.length > 0 ? (
+            courses.map((course) => (
+              <CourseCard key={course._id} course={course} />
+            ))
+          ) : (
+            <div className="no-courses">
+              <span className="coming-soon-badge">📚 Learning Hub</span>
+              <img src={NoCourses} alt="No courses available" />
+
+              <h3>New Courses Are Coming Soon</h3>
+
+              <p>
+                We’re preparing amazing learning content for you. Please check
+                back soon!
+              </p>
+            </div>
           )}
         </div>
       </section>
