@@ -4,7 +4,6 @@ import ReactDOM from "react-dom/client";
 
 import App from "./App";
 
-import { GoogleReCaptchaProvider } from "react-google-recaptcha-v3";
 
 import { GoogleOAuthProvider } from "@react-oauth/google";
 
@@ -15,11 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <GoogleOAuthProvider
       clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}
     >
-      <GoogleReCaptchaProvider
-        reCaptchaKey={import.meta.env.VITE_RECAPTCHA_SITE_KEY}
-      >
         <App />
-      </GoogleReCaptchaProvider>
     </GoogleOAuthProvider>
   </React.StrictMode>
 );

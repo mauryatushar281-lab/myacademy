@@ -3,7 +3,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/public/Home/Home";
 import Courses from "./pages/public/Courses/Courses";
 import About from "./pages/public/About/About";
-import Contact from "./pages/public/Contact/Contact";
+// import Contact from "./pages/public/Contact/Contact";
+import ContactPage from "./pages/public/Contact/ContactPage";
 import Login from "./pages/auth/Login/Login";
 import ForgotPassword from "./pages/auth/ForgotPassword/ForgotPassword";
 import ResetPassword from "./pages/auth/ResetPassword/ResetPassword";
@@ -11,7 +12,7 @@ import CourseCategory from "./pages/public/CourseCatagories/CourseCategory";
 import FreeLearning from "./pages/public/FreeLearning/FreeLearning";
 import Subjects from "./pages/public/FreeLearning/Subjects/Subjects";
 import Chapters from "./pages/public/FreeLearning/Chapters/Chapters";
-import AnimationPlayer from "./pages/public/FreeLearning/AnimationPlayer/AnimationPlayer"
+import AnimationPlayer from "./pages/public/FreeLearning/AnimationPlayer/AnimationPlayer";
 
 // import ElectrochemistryIntro from "./animations/class12/chemistry/electrochemistry/ElectrochemistryIntro"
 // here free learning end
@@ -47,7 +48,8 @@ function App() {
 
         <Route path="/about" element={<About />} />
 
-        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
+        <Route path="/contact" element={<ContactPage />} />
 
         <Route path="/courses/:category" element={<CourseCategory />} />
 
@@ -63,12 +65,8 @@ function App() {
           element={<AnimationPlayer />}
         />
 
-
-
-
-
-{/* <Route path="/Electro-intro" element={<ElectrochemistryIntro/>} /> */}
-{/* <Route path="/electrochemical-cells" element={<ElectrochemicalCells/>}  /> */}
+        {/* <Route path="/Electro-intro" element={<ElectrochemistryIntro/>} /> */}
+        {/* <Route path="/electrochemical-cells" element={<ElectrochemicalCells/>}  /> */}
         {/* here end free learning */}
 
         <Route path="/login" element={<Login />} />
