@@ -79,7 +79,6 @@ function Contact() {
 
     try {
       const token = await executeRecaptcha("contact_form");
-      console.log("reCAPTCHA Token:", token);
 
       const res = await contactAPI.post("/contact/send", {
         ...form,
@@ -107,35 +106,6 @@ function Contact() {
       setLoading(false);
     }
   };
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-
-  //   if (!validateForm()) {
-  //     return;
-  //   }
-
-  //   setLoading(true);
-  //   setStatus("");
-
-  //   try {
-  //     const res = await contactAPI.post("/contact/send", form);
-
-  //     setStatus(res.data.message);
-
-  //     setForm({
-  //       name: "",
-  //       email: "",
-  //       subject: "",
-  //       message: "",
-  //     });
-  //   } catch (error) {
-  //     console.log(error);
-
-  //     setStatus(error.response?.data?.message || "Something went wrong");
-  //   } finally {
-  //     setLoading(false);
-  //   }
-  // };
 
   return (
     <div className="contact-page">
