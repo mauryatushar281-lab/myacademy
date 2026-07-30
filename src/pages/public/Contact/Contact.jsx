@@ -1,6 +1,7 @@
 import "./Contact.css";
-import API from "../../../services/api.js";
+import contactAPI from "../../../services/contactAPI.js";
 import { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { Phone, Mail, Clock, Rocket, MapPin } from "lucide-react";
 import {
   FaWhatsapp,
@@ -12,6 +13,7 @@ import {
 import Navbar from "../../../components/Navbar/Navbar.jsx";
 
 function Contact() {
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const [form, setForm] = useState({
     name: "",
     email: "",
@@ -67,11 +69,22 @@ function Contact() {
       return;
     }
 
+    if (!executeRecaptcha) {
+      setStatus("reCAPTCHA is not ready. Please try again.");
+      return;
+    }
+
     setLoading(true);
     setStatus("");
 
     try {
-      const res = await API.post("/contact/send", form);
+      const token = await executeRecaptcha("contact_form");
+      console.log("reCAPTCHA Token:", token);
+
+      const res = await contactAPI.post("/contact/send", {
+        ...form,
+        recaptchaToken: token,
+      });
 
       setStatus(res.data.message);
 
@@ -81,14 +94,48 @@ function Contact() {
         subject: "",
         message: "",
       });
-    } catch (error) {
-      console.log(error);
 
-      setStatus(error.response?.data?.message || "Something went wrong");
+      setErrors({});
+    } catch (error) {
+      console.error("Contact form error:", error);
+
+      setStatus(
+        error.response?.data?.message ||
+          "Something went wrong. Please try again.",
+      );
     } finally {
       setLoading(false);
     }
   };
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+
+  //   if (!validateForm()) {
+  //     return;
+  //   }
+
+  //   setLoading(true);
+  //   setStatus("");
+
+  //   try {
+  //     const res = await contactAPI.post("/contact/send", form);
+
+  //     setStatus(res.data.message);
+
+  //     setForm({
+  //       name: "",
+  //       email: "",
+  //       subject: "",
+  //       message: "",
+  //     });
+  //   } catch (error) {
+  //     console.log(error);
+
+  //     setStatus(error.response?.data?.message || "Something went wrong");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
 
   return (
     <div className="contact-page">
@@ -156,68 +203,48 @@ function Contact() {
             {/* contact form here  */}
             <form className="contact-form" onSubmit={handleSubmit}>
               <input
-type="text"
-name="name"
-placeholder="Your Name"
-value={form.name}
-onChange={handleChange}
-/>
+                type="text"
+                name="name"
+                placeholder="Your Name"
+                value={form.name}
+                onChange={handleChange}
+              />
 
-
-{
-errors.name && 
-<p className="input-error">
-{errors.name}
-</p>
-}
-
-             <input
-type="email"
-name="email"
-placeholder="Your Email"
-value={form.email}
-onChange={handleChange}
-/>
-
-
-{
-errors.email &&
-<p className="input-error">
-{errors.email}
-</p>
-}
+              {errors.name && <p className="input-error">{errors.name}</p>}
 
               <input
-type="text"
-name="subject"
-placeholder="Subject"
-value={form.subject}
-onChange={handleChange}
-/>
+                type="email"
+                name="email"
+                placeholder="Your Email"
+                value={form.email}
+                onChange={handleChange}
+              />
 
+              {errors.email && <p className="input-error">{errors.email}</p>}
 
-{
-errors.subject &&
-<p className="input-error">
-{errors.subject}
-</p>
-}
+              <input
+                type="text"
+                name="subject"
+                placeholder="Subject"
+                value={form.subject}
+                onChange={handleChange}
+              />
 
-             <textarea
-name="message"
-rows="6"
-placeholder="Write Your Message..."
-value={form.message}
-onChange={handleChange}
-/>
+              {errors.subject && (
+                <p className="input-error">{errors.subject}</p>
+              )}
 
+              <textarea
+                name="message"
+                rows="6"
+                placeholder="Write Your Message..."
+                value={form.message}
+                onChange={handleChange}
+              />
 
-{
-errors.message &&
-<p className="input-error">
-{errors.message}
-</p>
-}
+              {errors.message && (
+                <p className="input-error">{errors.message}</p>
+              )}
 
               {status && <p className="form-status">{status}</p>}
 
@@ -274,12 +301,15 @@ errors.message &&
 
       {/* Social */}
 
-
       <section className="social-section">
         <h2>Connect With Us</h2>
 
         <div className="social-links">
-          <a href="https://youtube.com/@my-academy-b8l?si=8Sk4r3VJoks4cZzf" target="_blank" rel="noreferrer">
+          <a
+            href="https://youtube.com/@my-academy-b8l?si=8Sk4r3VJoks4cZzf"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FaYoutube />
             <span>YouTube</span>
           </a>
@@ -294,7 +324,11 @@ errors.message &&
             <span>GitHub</span>
           </a>
 
-          <a href="https://www.instagram.com/myacademy_1.0" target="_blank" rel="noreferrer">
+          <a
+            href="https://www.instagram.com/myacademy_1.0"
+            target="_blank"
+            rel="noreferrer"
+          >
             <FaInstagram />
             <span>Instagram</span>
           </a>
