@@ -313,6 +313,7 @@ html {
   .courses-grid,
   .testimonial-grid {
     grid-template-columns: 1fr;
+    justify-items: center;
   }
 
   .stat {
@@ -602,8 +603,6 @@ html {
 }
 
 .section-header h2 {
-
-
   font-size: 42px;
 
   color: #111827;
@@ -1110,4 +1109,39 @@ html {
   .courses-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* no courses */
+
+.no-courses {
+  width: 100%;
+  min-height: 450px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.no-courses img {
+  width: 260px;
+  max-width: 100%;
+  margin-bottom: 1.5rem;
+}
+
+.no-courses h3 {
+  font-size: 2rem;
+  color: #111827;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.no-courses p {
+  max-width: 550px;
+  color: #64748b;
+  line-height: 1.8;
+  font-size: 1rem;
 }

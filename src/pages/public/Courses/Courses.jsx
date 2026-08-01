@@ -11,6 +11,7 @@ import {
   Server,
   Briefcase,
 } from "lucide-react";
+import NoCourses from "/At the office.gif";
 function Courses() {
   const [courses, setCourses] = useState([]);
 
@@ -21,7 +22,6 @@ function Courses() {
   const loadCourses = async () => {
     try {
       const data = await getCourses();
-
 
       setCourses(data);
     } catch (error) {
@@ -149,7 +149,7 @@ function Courses() {
       {/* Stats */}
       <section className="course-stats">
         <div className="stat">
-          <h2>1000+</h2>
+          <h2>100+</h2>
           <p>Students</p>
         </div>
 
@@ -174,15 +174,31 @@ function Courses() {
         <div className="section-header">
           <h2>Featured Courses</h2>
 
-          <p>{courses.length} Courses Available</p>
+          <p>
+            {courses.length > 0
+              ? `${courses.length} Course${courses.length > 1 ? "s" : ""} Available`
+              : "No Courses Available"}
+          </p>
         </div>
 
-        <div className="courses-grid">
-          {courses.map((course) => (
-            <CourseCard key={course._id} course={course} />
-            // <CourseCard course={course} />
-          ))}
-        </div>
+        {courses.length === 0 ? (
+          <div className="no-courses">
+            <img src={NoCourses} alt="No Courses" />
+
+            <h3>No Courses Found</h3>
+
+            <p>
+              There are currently no courses available. Our instructors are
+              preparing exciting new content. Please check back soon!
+            </p>
+          </div>
+        ) : (
+          <div className="courses-grid">
+            {courses.map((course) => (
+              <CourseCard key={course._id} course={course} />
+            ))}
+          </div>
+        )}
       </section>
 
       {/* Testimonials */}
