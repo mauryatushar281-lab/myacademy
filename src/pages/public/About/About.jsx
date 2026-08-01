@@ -38,7 +38,7 @@ function About() {
       {/* Statistics */}
       <section className="stats-section">
         <div className="stat-card">
-          <h2>1000+</h2>
+          <h2>100+</h2>
           <p>Students</p>
         </div>
 

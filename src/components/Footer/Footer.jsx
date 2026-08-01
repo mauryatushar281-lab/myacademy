@@ -131,7 +131,7 @@ function Footer() {
       <div className="footer-stats">
         <div className="stat">
           <Users size={30} />
-          <h2>1000+</h2>
+          <h2>100+</h2>
           <p>Students</p>
         </div>
 

@@ -275,7 +275,7 @@ function StudentDashboard() {
             </button>
 
             {/* <span className="empty-note">
-              1000+ Students are already learning with MyAcademy
+              100+ Students are already learning with MyAcademy
             </span> */}
           </div>
         )}

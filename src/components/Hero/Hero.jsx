@@ -7,7 +7,7 @@ function Hero() {
 
       <div className="hero-container">
         <div className="hero-content">
-          <span className="hero-tag">🚀 Trusted by 1000+ Students</span>
+          <span className="hero-tag">🚀 Trusted by 100+ Students</span>
 
           <h1>
             Learn Today,
@@ -29,7 +29,7 @@ function Hero() {
 
           <div className="hero-stats">
             <div className="stat-box">
-              <h2>1000+</h2>
+              <h2>100+</h2>
               <p>Students</p>
             </div>
 

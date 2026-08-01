@@ -308,7 +308,7 @@ function Contact() {
       {/* CTA */}
 
       <section className="contact-cta">
-        <h2>Join 1000+ Students Today</h2>
+        <h2>Join 100+ Students Today</h2>
 
         <p>Learn Mathematics, Coding, MERN Stack and more.</p>
 

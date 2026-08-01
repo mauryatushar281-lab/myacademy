@@ -35,7 +35,7 @@ function Courses() {
       {/* Hero */}
       <section className="courses-hero">
         <div className="hero-left">
-          <span className="hero-badge">🚀 1000+ Students Enrolled</span>
+          <span className="hero-badge">🚀 100+ Students Enrolled</span>
 
           <h1>
             Upgrade Your Skills With
