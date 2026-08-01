@@ -310,10 +310,12 @@ html {
   }
 
   .category-grid,
-  .courses-grid,
-  .testimonial-grid {
+  .courses-grid{
     grid-template-columns: 1fr;
+  }
+  .testimonial-grid {
     justify-items: center;
+    grid-template-columns: 1fr;
   }
 
   .stat {
