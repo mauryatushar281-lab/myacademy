@@ -55,7 +55,13 @@ function Home() {
 
         <div className="course-grid">
           {loading ? (
-            <h2>Loading courses...</h2>
+            <div className="loading-courses">
+              <div className="spinner"></div>
+
+              <h2>Loading Courses</h2>
+
+              <p>Please wait while we prepare your learning experience...</p>
+            </div>
           ) : courses.length > 0 ? (
             courses.map((course) => (
               <CourseCard key={course._id} course={course} />
