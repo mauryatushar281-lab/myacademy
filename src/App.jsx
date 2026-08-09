@@ -11,8 +11,12 @@ import ResetPassword from "./pages/auth/ResetPassword/ResetPassword";
 import CourseCategory from "./pages/public/CourseCatagories/CourseCategory";
 import FreeLearning from "./pages/public/FreeLearning/FreeLearning";
 import Subjects from "./pages/public/FreeLearning/Subjects/Subjects";
+// here freelearning -> chapters and animation player
 import Chapters from "./pages/public/FreeLearning/Chapters/Chapters";
 import AnimationPlayer from "./pages/public/FreeLearning/AnimationPlayer/AnimationPlayer";
+
+import QuizHome  from "./pages/public/FreeLearning/Quiz/QuizHome/QuizHome";
+// import MCQ from "./pages/public/FreeLearning/MCQ/MCQ";
 
 // import ElectrochemistryIntro from "./animations/class12/chemistry/electrochemistry/ElectrochemistryIntro"
 // here free learning end
@@ -53,17 +57,34 @@ function App() {
 
         <Route path="/courses/:category" element={<CourseCategory />} />
 
-        <Route path="/free-learning" element={<FreeLearning />} />
-        <Route path="/free-learning/:className" element={<Subjects />} />
         <Route
           path="/free-learning/:className/:subject"
+          element={<FreeLearning />}
+        />
+        <Route path="/free-learning/:className" element={<Subjects />} />
+        <Route
+          path="/free-learning/:className/:subject/chapter/:chapterId"
           element={<Chapters />}
         />
 
         <Route
-          path="/free-learning/:className/:subject/:chapterId"
+          path="/free-learning/:className/:subject/:chapterId/:chapterSlug"
           element={<AnimationPlayer />}
         />
+
+        {/* here for quiz */}
+
+        {/* <Route
+  path="/free-learning/:className/:subject/:chapterId/:chapterSlug/mcq"
+  element={<MCQ />}
+/> */}
+
+        <Route
+          path="/free-learning/:className/:subject/:chapterId/:chapterSlug/quiz"
+          element={<QuizHome  />}
+        />
+
+        {/* here quiz end */}
 
         {/* <Route path="/Electro-intro" element={<ElectrochemistryIntro/>} /> */}
         {/* <Route path="/electrochemical-cells" element={<ElectrochemicalCells/>}  /> */}

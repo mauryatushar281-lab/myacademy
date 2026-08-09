@@ -1,272 +1,1153 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+/* =========================================================
+   MYACADEMY — CHAPTERS PAGE
+   Professional Education UI
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+
+
+/* =========================================================
+   RESET
+   ========================================================= */
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  color: #0f172a;
+  background: #f8fafc;
+}
+
+
+/* =========================================================
+   PAGE
+   ========================================================= */
 
 .chapters-page {
   min-height: 100vh;
 
-  padding: 80px 6%;
+  padding: 40px 6% 90px;
 
-  background: linear-gradient(135deg, #eef6ff, #f8fbff, #ffffff);
+  background:
+    radial-gradient(
+      circle at 5% 5%,
+      rgba(37, 99, 235, 0.10),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 95% 12%,
+      rgba(14, 165, 233, 0.08),
+      transparent 26%
+    ),
+    linear-gradient(
+      135deg,
+      #f8fbff 0%,
+      #eef5ff 45%,
+      #ffffff 100%
+    );
 }
 
-.breadcrumb {
-  display: flex;
 
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.back-button {
+  display: inline-flex;
   align-items: center;
-
+  justify-content: center;
   gap: 8px;
 
-  color: #64748b;
-
-  font-size: 0.95rem;
+  padding: 10px 16px;
 
   margin-bottom: 25px;
 
-  flex-wrap: wrap;
-}
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
 
-.breadcrumb span {
-  color: #2563eb;
+  background: rgba(255, 255, 255, 0.9);
 
+  color: #475569;
+
+  font-family: inherit;
+  font-size: 14px;
   font-weight: 600;
-}
-
-.chapters-page h1 {
-  font-size: 3rem;
-
-  font-weight: 700;
-
-  color: #0f172a;
-
-  margin-bottom: 15px;
-}
-
-.chapters-page > p {
-  font-size: 1.05rem;
-
-  color: #64748b;
-
-  margin-bottom: 50px;
-
-  max-width: 700px;
-
-  line-height: 1.7;
-}
-
-.chapter-grid {
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-
-  gap: 35px;
-}
-
-.chapter-card {
-  background: white;
-
-  border-radius: 24px;
-
-  padding: 30px;
 
   cursor: pointer;
 
-  transition: 0.35s;
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.05);
 
+  transition:
+    transform 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.back-button:hover {
+  color: #2563eb;
+
+  border-color: #bfdbfe;
+
+  transform: translateX(-4px);
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.10);
+}
+
+
+/* =========================================================
+   LEARNING HEADER
+   ========================================================= */
+
+.learning-header {
   position: relative;
+
+  max-width: 1250px;
+
+  margin: 0 auto;
+
+  min-height: 300px;
+
+  padding: 48px 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 40px;
 
   overflow: hidden;
 
-  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+  border-radius: 28px;
 
-  border: 1px solid rgba(226, 232, 240, 0.8);
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a 0%,
+      #172554 50%,
+      #1d4ed8 100%
+    );
+
+  box-shadow:
+    0 25px 60px rgba(15, 23, 42, 0.18);
 }
+
+
+/* Decorative circle */
+
+.learning-header::before {
+  content: "";
+
+  position: absolute;
+
+  width: 360px;
+  height: 360px;
+
+  right: -120px;
+  top: -190px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+}
+
+
+/* Second decoration */
+
+.learning-header::after {
+  content: "";
+
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: 180px;
+  bottom: -160px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(56, 189, 248, 0.10);
+}
+
+
+/* =========================================================
+   HEADER CONTENT
+   ========================================================= */
+
+.learning-header > div:first-child {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 850px;
+}
+
+
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.learning-badge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 7px 13px;
+
+  margin-bottom: 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 30px;
+
+  background:
+    rgba(255, 255, 255, 0.10);
+
+  color: #bfdbfe;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.4px;
+
+  backdrop-filter: blur(10px);
+}
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
+
+.learning-header .breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 7px;
+
+  margin-bottom: 15px;
+
+  color: #93c5fd;
+
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.learning-header .breadcrumb svg {
+  flex-shrink: 0;
+
+  color: #64748b;
+}
+
+.learning-header .breadcrumb span {
+  color: #dbeafe;
+}
+
+
+/* =========================================================
+   HEADER TITLE
+   ========================================================= */
+
+.learning-header h1 {
+  margin-bottom: 14px;
+
+  color: #ffffff;
+
+  font-size: clamp(2.3rem, 5vw, 3.7rem);
+
+  line-height: 1.08;
+
+  font-weight: 800;
+
+  letter-spacing: -1.5px;
+
+  text-transform: capitalize;
+}
+
+
+/* =========================================================
+   HEADER DESCRIPTION
+   ========================================================= */
+
+.learning-header p {
+  max-width: 700px;
+
+  color: #cbd5e1;
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SUBJECT ICON
+   ========================================================= */
+
+.subject-icon {
+  position: relative;
+
+  z-index: 2;
+
+  width: 150px;
+  height: 150px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 35px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.18),
+      rgba(255, 255, 255, 0.05)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  color: #ffffff;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.18);
+
+  backdrop-filter: blur(15px);
+
+  transform: rotate(3deg);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.learning-header:hover .subject-icon {
+  transform: rotate(0deg) scale(1.05);
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================================================
+   CHAPTER SECTION
+   ========================================================= */
+
+.chapters-section {
+  max-width: 1250px;
+
+  margin: 65px auto 0;
+}
+
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.section-header {
+  display: flex;
+
+  align-items: flex-end;
+
+  justify-content: space-between;
+
+  gap: 30px;
+
+  margin-bottom: 28px;
+}
+
+
+/* Small heading */
+
+.section-header span {
+  display: inline-block;
+
+  margin-bottom: 8px;
+
+  color: #2563eb;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 1.5px;
+}
+
+
+/* Main heading */
+
+.section-header h2 {
+  margin-bottom: 7px;
+
+  color: #0f172a;
+
+  font-size: 29px;
+
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: -0.7px;
+}
+
+
+/* Description */
+
+.section-header p {
+  color: #64748b;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   CHAPTER COUNT
+   ========================================================= */
+
+.chapter-count {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 10px 15px;
+
+  border: 1px solid #bfdbfe;
+
+  border-radius: 30px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   CHAPTER LIST
+   ========================================================= */
+
+.chapters-list {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 16px;
+}
+
+
+/* =========================================================
+   CHAPTER CARD
+   ========================================================= */
+
+.chapter-card {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    70px
+    minmax(0, 1fr)
+    auto;
+
+  align-items: center;
+
+  gap: 25px;
+
+  padding: 25px 28px;
+
+  overflow: hidden;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.94);
+
+  box-shadow:
+    0 8px 25px rgba(15, 23, 42, 0.05);
+
+  cursor: pointer;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+/* Top line */
 
 .chapter-card::before {
   content: "";
 
   position: absolute;
 
+  left: 0;
   top: 0;
 
-  left: 0;
-
-  height: 6px;
-
   width: 100%;
+  height: 4px;
 
-  background: linear-gradient(90deg, #2563eb, #06b6d4, #22c55e);
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #06b6d4,
+      #22c55e
+    );
+
+  opacity: 0;
+
+  transition: opacity 0.3s ease;
 }
+
+
+/* Decorative circle */
+
+.chapter-card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 180px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(37, 99, 235, 0.045);
+
+  transition:
+    transform 0.5s ease;
+}
+
+
+/* Hover */
 
 .chapter-card:hover {
-  transform: translateY(-10px);
+  transform: translateY(-5px);
 
-  box-shadow: 0 25px 55px rgba(37, 99, 235, 0.15);
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 20px 45px rgba(37, 99, 235, 0.10);
 }
 
-.chapter-top {
-  display: flex;
-
-  justify-content: space-between;
-
-  margin-bottom: 20px;
+.chapter-card:hover::before {
+  opacity: 1;
 }
+
+.chapter-card:hover::after {
+  transform: scale(1.35);
+}
+
+
+/* =========================================================
+   CHAPTER NUMBER
+   ========================================================= */
 
 .chapter-number {
-  background: #dbeafe;
+  position: relative;
+
+  z-index: 2;
+
+  width: 58px;
+  height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #dbeafe
+    );
+
+  border: 1px solid #bfdbfe;
 
   color: #2563eb;
 
-  padding: 8px 14px;
+  font-size: 17px;
+  font-weight: 800;
 
-  border-radius: 30px;
-
-  font-size: 0.85rem;
-
-  font-weight: 600;
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
-.duration {
-  background: #f1f5f9;
+.chapter-card:hover .chapter-number {
+  transform: scale(1.05);
 
-  padding: 8px 14px;
-
-  border-radius: 30px;
-
-  font-size: 0.85rem;
+  background:
+    linear-gradient(
+      135deg,
+      #dbeafe,
+      #bfdbfe
+    );
 }
 
-.chapter-card h2 {
-  font-size: 1.7rem;
 
-  margin-bottom: 12px;
+/* =========================================================
+   CHAPTER CONTENT
+   ========================================================= */
+
+.chapter-content {
+  position: relative;
+
+  z-index: 2;
+
+  min-width: 0;
+}
+
+
+/* Title */
+
+.chapter-content h3 {
+  margin-bottom: 7px;
 
   color: #0f172a;
+
+  font-size: 18px;
+
+  line-height: 1.35;
+
+  font-weight: 700;
+
+  transition: color 0.25s ease;
 }
 
-.chapter-card p {
+.chapter-card:hover .chapter-content h3 {
+  color: #2563eb;
+}
+
+
+/* Description */
+
+.chapter-content > p {
+  max-width: 750px;
+
+  margin-bottom: 11px;
+
   color: #64748b;
 
-  line-height: 1.7;
+  font-size: 13px;
 
-  margin-bottom: 25px;
+  line-height: 1.65;
 }
 
-.chapter-features {
-  display: grid;
 
-  grid-template-columns: repeat(2, 1fr);
+/* =========================================================
+   CHAPTER META
+   ========================================================= */
 
-  gap: 15px;
-
-  margin-bottom: 30px;
-}
-
-.chapter-features span {
+.chapter-meta {
   display: flex;
 
   align-items: center;
 
-  gap: 10px;
+  flex-wrap: wrap;
+
+  gap: 16px;
+
+  margin-bottom: 11px;
+}
+
+.chapter-meta span {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  color: #64748b;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.chapter-meta svg {
+  color: #2563eb;
+}
+
+
+/* =========================================================
+   LESSON TAGS
+   ========================================================= */
+
+.chapter-lessons {
+  display: flex;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+  gap: 7px;
+}
+
+.chapter-lessons span {
+  display: inline-flex;
+
+  align-items: center;
+
+  padding: 5px 9px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 7px;
 
   background: #f8fafc;
 
-  padding: 12px;
+  color: #475569;
 
-  border-radius: 12px;
+  font-size: 10px;
+  font-weight: 700;
 
-  font-size: 0.9rem;
-
-  font-weight: 500;
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease;
 }
 
-.chapter-features svg {
-  color: #2563eb;
+.chapter-card:hover .chapter-lessons span {
+  background: #eff6ff;
+
+  border-color: #dbeafe;
 }
 
-.chapter-card button {
-  width: 100%;
 
-  border: none;
+/* =========================================================
+   START BUTTON
+   ========================================================= */
 
-  padding: 15px;
+.chapter-button {
+  position: relative;
 
-  border-radius: 14px;
+  z-index: 3;
 
-  background: linear-gradient(135deg, #2563eb, #3b82f6);
-
-  color: white;
-
-  font-size: 1rem;
-
-  font-weight: 600;
-
-  display: flex;
-
-  justify-content: center;
+  display: inline-flex;
 
   align-items: center;
 
-  gap: 10px;
+  justify-content: center;
+
+  gap: 7px;
+
+  min-width: 105px;
+
+  padding: 11px 17px;
+
+  border: none;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 13px;
+  font-weight: 700;
 
   cursor: pointer;
 
-  transition: 0.3s;
+  box-shadow:
+    0 7px 18px rgba(37, 99, 235, 0.20);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
 }
 
-.chapter-card button:hover {
-  transform: scale(1.02);
+
+/* Arrow */
+
+.chapter-button svg {
+  transition:
+    transform 0.25s ease;
 }
 
-@media (max-width: 992px) {
+
+/* Hover */
+
+.chapter-button:hover {
+  background:
+    linear-gradient(
+      135deg,
+      #1d4ed8,
+      #2563eb
+    );
+
+  transform: translateX(3px);
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.30);
+}
+
+.chapter-button:hover svg {
+  transform: translateX(4px);
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+.chapter-card:focus-visible,
+.chapter-button:focus-visible,
+.back-button:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
+
   .chapters-page {
-    padding: 70px 5%;
+    padding-left: 4%;
+    padding-right: 4%;
   }
+
+  .learning-header {
+    padding: 42px;
+  }
+
+  .chapters-section {
+    margin-top: 55px;
+  }
+
 }
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
 
 @media (max-width: 768px) {
+
   .chapters-page {
-    padding: 60px 20px;
+    padding: 30px 20px 70px;
   }
 
-  .chapters-page h1 {
-    font-size: 2.2rem;
 
-    text-align: center;
+  /* Header */
+
+  .learning-header {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    padding: 35px 28px;
+
+    min-height: auto;
+
+    border-radius: 23px;
   }
 
-  .chapters-page > p {
-    text-align: center;
+
+  .learning-header h1 {
+    font-size: 2.4rem;
   }
 
-  .chapter-grid {
-    grid-template-columns: 1fr;
+
+  .learning-header p {
+    font-size: 14px;
+
+    line-height: 1.7;
   }
 
-  .breadcrumb {
-    justify-content: center;
+
+  /* Icon */
+
+  .subject-icon {
+    width: 105px;
+    height: 105px;
+
+    align-self: flex-end;
+
+    border-radius: 26px;
   }
+
+  .subject-icon svg {
+    width: 52px;
+    height: 52px;
+  }
+
+
+  /* Section header */
+
+  .section-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 15px;
+  }
+
+
+  .section-header h2 {
+    font-size: 25px;
+  }
+
+
+  /* Chapter */
+
+  .chapter-card {
+    grid-template-columns:
+      55px
+      minmax(0, 1fr);
+
+    gap: 17px;
+
+    padding: 20px;
+  }
+
+
+  .chapter-number {
+    width: 50px;
+    height: 50px;
+
+    border-radius: 14px;
+
+    font-size: 15px;
+  }
+
+
+  /* Button */
+
+  .chapter-button {
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    margin-top: 5px;
+  }
+
 }
 
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
 @media (max-width: 480px) {
+
+  .chapters-page {
+    padding: 22px 15px 55px;
+  }
+
+
+  /* Back */
+
+  .back-button {
+    padding: 9px 13px;
+
+    font-size: 13px;
+
+    margin-bottom: 18px;
+  }
+
+
+  /* Header */
+
+  .learning-header {
+    padding: 28px 21px;
+
+    border-radius: 19px;
+  }
+
+
+  .learning-badge {
+    font-size: 10px;
+
+    padding: 6px 10px;
+  }
+
+
+  .learning-header .breadcrumb {
+    gap: 5px;
+
+    font-size: 11px;
+  }
+
+
+  .learning-header h1 {
+    font-size: 2rem;
+
+    letter-spacing: -0.8px;
+  }
+
+
+  .learning-header p {
+    font-size: 13px;
+  }
+
+
+  .subject-icon {
+    width: 85px;
+    height: 85px;
+
+    border-radius: 22px;
+  }
+
+  .subject-icon svg {
+    width: 42px;
+    height: 42px;
+  }
+
+
+  /* Section */
+
+  .chapters-section {
+    margin-top: 42px;
+  }
+
+
+  .section-header {
+    margin-bottom: 20px;
+  }
+
+
+  .section-header span {
+    font-size: 10px;
+  }
+
+
+  .section-header h2 {
+    font-size: 21px;
+  }
+
+
+  .section-header p {
+    font-size: 12px;
+  }
+
+
+  .chapter-count {
+    padding: 8px 12px;
+
+    font-size: 11px;
+  }
+
+
+  /* Chapter */
+
   .chapter-card {
-    padding: 22px;
+    padding: 17px;
+
+    border-radius: 17px;
+
+    gap: 13px;
   }
 
-  .chapter-card h2 {
-    font-size: 1.4rem;
+
+  .chapter-number {
+    width: 45px;
+    height: 45px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
   }
 
-  .chapter-features {
-    grid-template-columns: 1fr;
+
+  .chapter-content h3 {
+    font-size: 15px;
   }
 
-  .chapter-card button {
-    padding: 14px;
+
+  .chapter-content > p {
+    font-size: 12px;
+
+    line-height: 1.6;
   }
+
+
+  .chapter-meta {
+    gap: 10px;
+  }
+
+
+  .chapter-meta span {
+    font-size: 10px;
+  }
+
+
+  .chapter-lessons {
+    gap: 5px;
+  }
+
+
+  .chapter-lessons span {
+    padding: 4px 7px;
+
+    font-size: 9px;
+  }
+
+
+  .chapter-button {
+    padding: 11px;
+
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
 }

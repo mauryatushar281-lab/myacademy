@@ -1,11 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { BookOpen, Play, Users, ArrowRight, GraduationCap } from "lucide-react";
 
 import "./CourseCategory.css";
 
 function CourseCategory() {
   const { category } = useParams();
-
+  const navigate = useNavigate();
   const categoryData = {
     class11: {
       title: "Class 11",
@@ -129,7 +129,13 @@ function CourseCategory() {
 
               <p>Learn concepts, practice questions and improve skills.</p>
 
-              <button>
+              <button
+                onClick={() =>
+                  navigate(
+                    `/free-learning/${category}/${course.toLowerCase().replace(/\s+/g, "-")}`,
+                  )
+                }
+              >
                 View Course
                 <ArrowRight size={18} />
               </button>
