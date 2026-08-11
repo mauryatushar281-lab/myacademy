@@ -19,16 +19,16 @@ function CourseCategory() {
       courses: ["Physics", "Chemistry", "Mathematics", "English"],
     },
 
-    jee: {
-      title: "JEE Preparation",
-      subtitle: "Crack engineering entrance exams with expert guidance",
-      courses: ["JEE Physics", "JEE Chemistry", "JEE Mathematics"],
+    class10: {
+      title: "Class 10",
+      subtitle: "Master board exams and competitive preparation",
+      courses: ["Science", "Social Science", " Mathematics" , ],
     },
 
-    ssc: {
-      title: "SSC Preparation",
-      subtitle: "Prepare smarter for government examinations",
-      courses: ["Reasoning", "English", "General Awareness"],
+    class9: {
+      title: "Class 9",
+      subtitle: "Build Strong Foundations for Your Future",
+      courses: ["Science", "Social Science", " Mathematics" , ],
     },
   };
 

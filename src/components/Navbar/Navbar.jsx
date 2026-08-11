@@ -67,13 +67,13 @@ function Navbar() {
             <button className="dropdown-btn">Categories</button>
 
             <div className="dropdown-menu">
-              <NavLink to="/courses/class11">Class 11</NavLink>
-
               <NavLink to="/courses/class12">Class 12</NavLink>
 
-              <NavLink to="/courses/jee">JEE</NavLink>
+              <NavLink to="/courses/class11">Class 11</NavLink>
 
-              <NavLink to="/courses/ssc">SSC</NavLink>
+              <NavLink to="/courses/class10">class 10</NavLink>
+
+              <NavLink to="/courses/class9">class 9</NavLink>
             </div>
           </div>
 
