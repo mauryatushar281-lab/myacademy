@@ -1,6 +1,7 @@
  import { useState } from "react";
 import { loginUser, registerUser } from "@/services/authApi";
-import { Mail, Lock, Eye, EyeOff, GraduationCap, User } from "lucide-react";
+import { Mail, Lock, Eye, EyeOff,  User } from "lucide-react";
+// GraduationCap,
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
@@ -64,10 +65,10 @@ function Login() {
       <div className="auth-card">
         <div className="auth-logo">
           <div className="logo-icon">
-             <img src={desktopLogo} alt="My Academy" className="logo-img" />
+             <img src={desktopLogo} alt="IgnitingRise" className="logo-img" />
           </div>
 
-          <h1>My-Academy</h1>
+          <h1>IgnitingRise</h1>
           <span>Learn • Grow • Succeed</span>
         </div>
 
@@ -92,7 +93,7 @@ function Login() {
         <p>
           {isLogin
             ? "Sign in to access your courses."
-            : "Join My-Academy and start learning."}
+            : "Join IgnitingRise and start learning."}
         </p>
 
         {/* FORM */}
