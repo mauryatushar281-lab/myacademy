@@ -7,7 +7,7 @@ function About() {
       <Navbar />
       {/* Hero Section */}
       <section className="about-hero">
-        <h1>About My-Academy</h1>
+        <h1>About IgnitingRise</h1>
         <p>
           Empowering students with high-quality education, practical skills, and
           career-focused learning.

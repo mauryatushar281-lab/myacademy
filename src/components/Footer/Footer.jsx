@@ -54,7 +54,7 @@ function Footer() {
       <div className="footer-container">
         {/* Brand */}
         <div className="footer-section">
-          <h2 className="logo">My-Academy</h2>
+          <h2 className="logo">IgnitingRise</h2>
 
           <p>
             Empowering students with high-quality education, practical skills
@@ -222,7 +222,7 @@ function Footer() {
             Mobile Learning Experience
           </div>
 
-          <h3>Download My Academy App</h3>
+          <h3>Download IgnitingRise App</h3>
 
           <p>
             Watch lectures, practice quizzes, download notes, and learn anywhere

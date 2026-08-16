@@ -3,8 +3,8 @@ import Search from "../Search/Search";
 import { Menu, X, Bell } from "lucide-react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import desktopLogo from "/logo-desktop.png";
-import mobileLogo from "/logo-mobile.png";
+import desktopLogo from "/Igniting-Rise.png";
+import mobileLogo from "/Igniting-Rise.png";
 
 import "./Navbar.css";
 

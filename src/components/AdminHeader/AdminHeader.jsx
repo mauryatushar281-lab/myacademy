@@ -17,7 +17,7 @@ function AdminHeader({ admin }) {
 
       {/* Logo */}
       <div className="header-logo">
-        <h2>🚀 MyAcademy</h2>
+        <h2>🚀 IgnitingRise</h2>
       </div>
 
       {/* Navigation */}

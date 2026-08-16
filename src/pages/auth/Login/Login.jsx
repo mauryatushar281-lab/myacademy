@@ -1,10 +1,11 @@
-import { useState } from "react";
+ import { useState } from "react";
 import { loginUser, registerUser } from "@/services/authApi";
 import { Mail, Lock, Eye, EyeOff, GraduationCap, User } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import "./Login.css";
+import desktopLogo from "/Igniting-Rise.png";
 
 function Login() {
   const navigate = useNavigate();
@@ -63,7 +64,7 @@ function Login() {
       <div className="auth-card">
         <div className="auth-logo">
           <div className="logo-icon">
-            <GraduationCap size={42} />
+             <img src={desktopLogo} alt="My Academy" className="logo-img" />
           </div>
 
           <h1>My-Academy</h1>

@@ -258,7 +258,7 @@ function StudentDashboard() {
           <div className="empty-dashboard">
             <img src="/Online learning.gif" alt="Start Learning" />
 
-            <h2>Welcome to MyAcademy 🎉</h2>
+            <h2>Welcome to IgnitingRise 🎉</h2>
 
             <p>
               Your learning journey starts here. Explore our expert-designed
@@ -275,7 +275,7 @@ function StudentDashboard() {
             </button>
 
             {/* <span className="empty-note">
-              100+ Students are already learning with MyAcademy
+              100+ Students are already learning with IgnitingRise. Join them today and unlock your potential!
             </span> */}
           </div>
         )}

@@ -244,7 +244,7 @@ export default AdminDashboard;
 //   return (
 //     <div className="admin">
 //       <div className="topbar">
-//         <h2>🚀 MyAcademy</h2>
+//         <h2>🚀 </h2>
 
 //         <div className="admin-profile">
 //           <img src="https://i.pravatar.cc/50" alt="admin" />
