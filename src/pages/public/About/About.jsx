@@ -25,7 +25,7 @@ function About() {
             </p>
 
             <p>
-              I started My-Academy with a mission to provide affordable and
+              I started IgnitingRise with a mission to provide affordable and
               high-quality education to students across India.
             </p>
           </div>
@@ -131,7 +131,7 @@ function About() {
 
       <section className="why-section">
         <div className="section-heading">
-          <h2>Why Choose My-Academy?</h2>
+          <h2>Why Choose IgnitingRise?</h2>
 
           <p>
             We focus on practical learning, career growth and student success.
@@ -233,7 +233,7 @@ function About() {
             <div className="timeline-year">2026</div>
 
             <div className="timeline-content">
-              <h3>Launched My-Academy</h3>
+              <h3>Launched IgnitingRise</h3>
 
               <p>
                 Started an online learning platform helping students learn
@@ -252,7 +252,7 @@ function About() {
         <div className="success-grid">
           <div className="success-card">
             ⭐⭐⭐⭐⭐
-            <p>Mathematics became easy after joining My-Academy.</p>
+            <p>Mathematics became easy after joining IgnitingRise.</p>
             <h4>- Rahul Kumar</h4>
           </div>
 
