@@ -3,8 +3,8 @@ import Search from "../Search/Search";
 import { Menu, X, Bell } from "lucide-react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 
-import desktopLogo from "/Igniting-Rise.png";
-import mobileLogo from "/Igniting-Rise.png";
+import desktopLogo from "/circle-IgnitingRise.png";
+import mobileLogo from "/circle-IgnitingRise.png";
 
 import "./Navbar.css";
 
@@ -50,7 +50,7 @@ function Navbar() {
       <div className="navbar-container">
         <Link to="/" className="logo">
           <picture>
-            <source media="(max-width:768px)" srcSet={mobileLogo} />
+            <source media="(max-width:50px)" srcSet={mobileLogo} />
 
             <img src={desktopLogo} alt="My Academy" className="logo-image" />
           </picture>
